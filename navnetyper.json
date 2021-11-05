@@ -63,10 +63,6 @@
               "visningsnavn": "Rygg"
             },
             {
-              "navn": "egg",
-              "visningsnavn": "Egg"
-            },            
-            {
               "kode": "1206",
               "navn": "haug",
               "visningsnavn": "Haug"
@@ -87,8 +83,14 @@
               "visningsnavn": "Fjellkant"
             },
             {
-              "navn": "fjellvegg",
-              "visningsnavn": "Fjellvegg"
+              "kode": "1210",
+              "navn": "egg",
+              "visningsnavn": "Egg"
+            },
+            {
+              "kode": "1211",
+              "navn": "hammar",
+              "visningsnavn": "Hammar"
             }
           ]
         },
@@ -175,6 +177,11 @@
               "kode": "1503",
               "navn": "fjellside",
               "visningsnavn": "Fjellside"
+            },
+            {
+              "kode": "1504",
+              "navn": "fjellvegg",
+              "visningsnavn": "Fjellvegg"
             }
           ]
         },
@@ -193,10 +200,6 @@
               "navn": "stup",
               "visningsnavn": "Stup"
             },
-            {
-              "navn": "hammar",
-              "visningsnavn": "Hammar"
-            },            
             {
               "kode": "1603",
               "navn": "heller",
@@ -237,6 +240,7 @@
               "visningsnavn": "Fjell i dagen"
             },
             {
+              "kode": "2102",
               "navn": "sva",
               "visningsnavn": "Sva"
             }
@@ -307,6 +311,7 @@
               "visningsnavn": "Myr"
             },
             {
+              "kode": "2402",
               "navn": "våtmarksområde",
               "visningsnavn": "Våtmarksområde"
             }
@@ -346,10 +351,6 @@
               "kode": "2506",
               "navn": "utmark",
               "visningsnavn": "Utmark"
-            },
-            {
-              "navn": "reinbeitedistrikt",
-              "visningsnavn": "Reinbeitedistrikt"
             }
           ]
         },
@@ -425,10 +426,6 @@
               "visningsnavn": "Del av innsjø"
             },
             {
-              "navn": "delAvVann",
-              "visningsnavn": "Del av vann"
-            },
-            {
               "kode": "3103",
               "navn": "vann",
               "visningsnavn": "Vann"
@@ -457,6 +454,11 @@
               "kode": "3108",
               "navn": "dam",
               "visningsnavn": "Dam"
+            },
+            {
+              "kode": "3109",
+              "navn": "delAvVann",
+              "visningsnavn": "Del av vann"
             }
           ]
         },
@@ -615,10 +617,6 @@
               "kode": "3501",
               "navn": "annenVanndetalj",
               "visningsnavn": "Annen vanndetalj"
-            },
-            {
-              "navn": "vannstandsmåler",
-              "visningsnavn": "Vannstandsmåler"
             }
           ]
         }
@@ -962,6 +960,11 @@
               "kode": "5112",
               "navn": "torg",
               "visningsnavn": "Torg"
+            },
+            {
+              "kode": "5113",
+              "navn": "tuft",
+              "visningsnavn": "Tuft"
             }
           ]
         },
@@ -992,10 +995,6 @@
               "visningsnavn": "Seter/støl"
             },
             {
-              "navn": "stølsSetereiendom",
-              "visningsnavn": "Støls-/setereiendom"
-            },
-            {
               "kode": "5205",
               "navn": "byggForJordbrukFiskeOgFangst",
               "tidlnavn": "byggForJordbrukFiskeFangst",
@@ -1007,13 +1006,19 @@
               "visningsnavn": "Eiendom"
             },
             {
+              "kode": "5207",
+              "navn": "gjerde",
+              "visningsnavn": "Gjerde"
+            },
+            {
+              "kode": "5208",
               "navn": "eiendomsteig",
               "visningsnavn": "Eiendomsteig"
             },
             {
-              "kode": "5207",
-              "navn": "gjerde",
-              "visningsnavn": "Gjerde"
+              "kode": "5209",
+              "navn": "stølsSetereiendom",
+              "visningsnavn": "Støls-/setereiendom"
             }
           ]
         },
@@ -1047,10 +1052,6 @@
               "kode": "5305",
               "navn": "gammelBosettingsplass",
               "visningsnavn": "Gammel bosettingsplass"
-            },
-            {
-              "navn": "tuft",
-              "visningsnavn": "Tuft"
             }
           ]
         },
@@ -1106,8 +1107,14 @@
               "visningsnavn": "Oppdrettsanlegg"
             },
             {
+              "kode": "5410",
               "navn": "vannverk",
               "visningsnavn": "Vannverk"
+            },
+            {
+              "kode": "5411",
+              "navn": "boinstitusjon",
+              "visningsnavn": "Boinstitusjon"
             }
           ]
         },
@@ -1136,10 +1143,6 @@
               "kode": "5504",
               "navn": "helseinstitusjon",
               "visningsnavn": "Helseinstitusjon"
-            },
-            {
-              "navn": "boinstitusjon",
-              "visningsnavn": "Boinstitusjon"
             },
             {
               "kode": "5505",
@@ -1213,11 +1216,7 @@
               "kode": "5607",
               "navn": "badeplass",
               "visningsnavn": "Badeplass"
-            },
-            {
-              "navn": "friluftsområde",
-              "visningsnavn": "Friluftsområde"
-            }            
+            }
           ]
         }
       ]
@@ -1279,10 +1278,6 @@
               "visningsnavn": "Vegstrekning"
             },
             {
-              "navn": "fjellovergang",
-              "visningsnavn": "Fjellovergang"
-            },
-            {
               "kode": "6110",
               "navn": "vad",
               "visningsnavn": "Vad"
@@ -1298,10 +1293,6 @@
               "visningsnavn": "Tømmervelte"
             },
             {
-              "navn": "busstasjon",
-              "visningsnavn": "Busstasjon"
-            },
-            {
               "kode": "6113",
               "navn": "busstopp",
               "visningsnavn": "Busstopp"
@@ -1310,6 +1301,16 @@
               "kode": "6114",
               "navn": "parkeringsplass",
               "visningsnavn": "Parkeringsplass"
+            },
+            {
+              "kode": "6115",
+              "navn": "busstasjon",
+              "visningsnavn": "Busstasjon"
+            },
+            {
+              "kode": "6116",
+              "navn": "fjellovergang",
+              "visningsnavn": "Fjellovergang"
             }
           ]
         },
@@ -1332,6 +1333,16 @@
               "kode": "6203",
               "navn": "banestrekning",
               "visningsnavn": "Banestrekning"
+            },
+            {
+              "kode": "6204",
+              "navn": "jernbanebru",
+              "visningsnavn": "Jernbanebru"
+            },
+            {
+              "kode": "6205",
+              "navn": "jernbanetunnel",
+              "visningsnavn": "Jernbanetunnel"
             }
           ]
         },
@@ -1351,6 +1362,7 @@
               "visningsnavn": "Landingsplass"
             },
             {
+              "kode": "6303",
               "navn": "helikopterlandingsplass",
               "visningsnavn": "Helikopterlandingsplass"
             }
@@ -1485,6 +1497,7 @@
               "visningsnavn": "Varde"
             },
             {
+              "kode": "6511",
               "navn": "sjømerkeMedIndirekteBelysning",
               "visningsnavn": "Sjømerke med indirekte belysning"
             }
@@ -1501,25 +1514,9 @@
               "visningsnavn": "Tunnel"
             },
             {
-              "navn": "jernbanetunnel",
-              "visningsnavn": "Jernbanetunnel"
-            },            
-            {
-              "navn": "overbygg",
-              "visningsnavn": "Overbygg"
-            },
-            {
               "kode": "6602",
               "navn": "bru",
               "visningsnavn": "Bru"
-            },
-            {
-              "navn": "jernbanebru",
-              "visningsnavn": "Jernbanebru"
-            },
-            {
-              "navn": "mindreBrukonstruksjon",
-              "visningsnavn": "Mindre brukonstruksjon"
             },
             {
               "kode": "6603",
@@ -1555,6 +1552,16 @@
               "kode": "6609",
               "navn": "taubane",
               "visningsnavn": "Taubane"
+            },
+            {
+              "kode": "6610",
+              "navn": "overbygg",
+              "visningsnavn": "Overbygg"
+            },
+            {
+              "kode": "6611",
+              "navn": "mindreBrukonstruksjon",
+              "visningsnavn": "Mindre brukonstruksjon"
             }
           ]
         },
@@ -1593,6 +1600,11 @@
               "kode": "6706",
               "navn": "oljeinstallasjon",
               "visningsnavn": "Oljeinstallasjon"
+            },
+            {
+              "kode": "6707",
+              "navn": "vannstandsmåler",
+              "visningsnavn": "Vannstandsmåler"
             }
           ]
         },
@@ -1680,6 +1692,11 @@
               "kode": "7112",
               "navn": "annenAdministrativInndeling",
               "visningsnavn": "Annen administrativ inndeling"
+            },
+            {
+              "kode": "7113",
+              "navn": "reinbeitedistrikt",
+              "visningsnavn": "Reinbeitedistrikt"
             }
           ]
         },
@@ -1713,6 +1730,11 @@
               "kode": "7205",
               "navn": "soneinndelingTilHavs",
               "visningsnavn": "Soneinndeling til havs"
+            },
+            {
+              "kode": "7206",
+              "navn": "friluftsområde",
+              "visningsnavn": "Friluftsområde"
             }
           ]
         }
@@ -1766,10 +1788,6 @@
               "visningsnavn": "Forsamlingshus/kulturhus"
             },
             {
-              "navn": "kulturMessehall",
-              "visningsnavn": "Kultur-/messehall"
-            },
-            {
               "kode": "8203",
               "navn": "kirke",
               "visningsnavn": "Kirke"
@@ -1783,6 +1801,11 @@
               "kode": "8205",
               "navn": "gravplass",
               "visningsnavn": "Gravplass"
+            },
+            {
+              "kode": "88206",
+              "navn": "kulturMessehall",
+              "visningsnavn": "Kultur-/messehall"
             }
           ]
         }

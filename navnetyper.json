@@ -1,662 +1,1789 @@
 {
-  "navnetypeHovedgrupper":
-  [
+  "navnetypeHovedgrupper": [
     {
       "kode": "1000",
-      "navn": "Terreng",
+      "navn": "terreng",
       "visningsnavn": "Terreng",
-      "navnetypeGrupper":
-      [
+      "navnetypeGrupper": [
         {
           "kode": "1100",
-          "navn": "Terrengområder",
+          "navn": "terrengområder",
           "visningsnavn": "Terrengområder",
-          "navnetyper":
-          [
-            { "kode": "1101", "navn": "Landskapsområde", "visningsnavn": "Landskapsområde" },
-            { "kode": "1102", "navn": "Fjellområde", "visningsnavn": "Fjellområde" },
-            { "kode": "1103", "navn": "Vidde", "visningsnavn": "Vidde" },
-            { "kode": "1104", "navn": "Skogområde", "visningsnavn": "Skogområde" }
+          "navnetyper": [
+            {
+              "kode": "1101",
+              "navn": "landskapsområde",
+              "visningsnavn": "Landskapsområde"
+            },
+            {
+              "kode": "1102",
+              "navn": "fjellområde",
+              "visningsnavn": "Fjellområde"
+            },
+            {
+              "kode": "1103",
+              "navn": "vidde",
+              "visningsnavn": "Vidde"
+            },
+            {
+              "kode": "1104",
+              "navn": "skogområde",
+              "visningsnavn": "Skogområde"
+            }
           ]
         },
         {
           "kode": "1200",
-          "navn": "Høyder",
+          "navn": "høyder",
           "visningsnavn": "Høyder",
-          "navnetyper":
-          [
-            { "kode": "1201", "navn": "Fjell", "visningsnavn": "Fjell" },
-            { "kode": "1202", "navn": "Berg", "visningsnavn": "Berg" },
-            { "kode": "1203", "navn": "Høyde", "visningsnavn": "Høyde" },
-            { "kode": "1204", "navn": "Ås", "visningsnavn": "Ås" },
-            { "kode": "1205", "navn": "Rygg", "visningsnavn": "Rygg" },
-            { "kode": "1206", "navn": "Haug", "visningsnavn": "Haug" },
-            { "kode": "1207", "navn": "Hei", "visningsnavn": "Hei" },
-            { "kode": "1208", "navn": "Topp", "visningsnavn": "Topp" },
-            { "kode": "1209", "navn": "Fjellkant", "visningsnavn": "Fjellkant" }
+          "navnetyper": [
+            {
+              "kode": "1201",
+              "navn": "fjell",
+              "visningsnavn": "Fjell"
+            },
+            {
+              "kode": "1202",
+              "navn": "berg",
+              "visningsnavn": "Berg"
+            },
+            {
+              "kode": "1203",
+              "navn": "høyde",
+              "visningsnavn": "Høyde"
+            },
+            {
+              "kode": "1204",
+              "navn": "ås",
+              "visningsnavn": "Ås"
+            },
+            {
+              "kode": "1205",
+              "navn": "rygg",
+              "visningsnavn": "Rygg"
+            },
+            {
+              "navn": "egg",
+              "visningsnavn": "Egg"
+            },            
+            {
+              "kode": "1206",
+              "navn": "haug",
+              "visningsnavn": "Haug"
+            },
+            {
+              "kode": "1207",
+              "navn": "hei",
+              "visningsnavn": "Hei"
+            },
+            {
+              "kode": "1208",
+              "navn": "topp",
+              "visningsnavn": "Topp"
+            },
+            {
+              "kode": "1209",
+              "navn": "fjellkant",
+              "visningsnavn": "Fjellkant"
+            },
+            {
+              "navn": "fjellvegg",
+              "visningsnavn": "Fjellvegg"
+            }
           ]
         },
         {
           "kode": "1300",
-          "navn": "Senkninger",
+          "navn": "senkninger",
           "visningsnavn": "Senkninger",
-          "navnetyper":
-          [
-            { "kode": "1301", "navn": "Dalføre", "visningsnavn": "Dalføre" },
-            { "kode": "1302", "navn": "Dal", "visningsnavn": "Dal" },
-            { "kode": "1303", "navn": "Botn", "visningsnavn": "Botn" },
-            { "kode": "1304", "navn": "Skar", "visningsnavn": "Skar" },
-            { "kode": "1305", "navn": "Juv", "visningsnavn": "Juv" },
-            { "kode": "1306", "navn": "Søkk", "visningsnavn": "Søkk" },
-            { "kode": "1307", "navn": "Senkning", "visningsnavn": "Senkning" },
-            { "kode": "1308", "navn": "Krater", "visningsnavn": "Krater" }
+          "navnetyper": [
+            {
+              "kode": "1301",
+              "navn": "dalføre",
+              "visningsnavn": "Dalføre"
+            },
+            {
+              "kode": "1302",
+              "navn": "dal",
+              "visningsnavn": "Dal"
+            },
+            {
+              "kode": "1303",
+              "navn": "botn",
+              "visningsnavn": "Botn"
+            },
+            {
+              "kode": "1304",
+              "navn": "skar",
+              "visningsnavn": "Skar"
+            },
+            {
+              "kode": "1305",
+              "navn": "juv",
+              "visningsnavn": "Juv"
+            },
+            {
+              "kode": "1306",
+              "navn": "søkk",
+              "visningsnavn": "Søkk"
+            },
+            {
+              "kode": "1307",
+              "navn": "senkning",
+              "visningsnavn": "Senkning"
+            },
+            {
+              "kode": "1308",
+              "navn": "krater",
+              "visningsnavn": "Krater"
+            }
           ]
         },
         {
           "kode": "1400",
-          "navn": "Flater",
+          "navn": "flater",
           "visningsnavn": "Flater",
-          "navnetyper":
-          [
-            { "kode": "1401", "navn": "Mo", "visningsnavn": "Mo" },
-            { "kode": "1402", "navn": "Slette", "visningsnavn": "Slette" }
+          "navnetyper": [
+            {
+              "kode": "1401",
+              "navn": "mo",
+              "visningsnavn": "Mo"
+            },
+            {
+              "kode": "1402",
+              "navn": "slette",
+              "visningsnavn": "Slette"
+            }
           ]
         },
         {
           "kode": "1500",
-          "navn": "Skråninger",
+          "navn": "skråninger",
           "visningsnavn": "Skråninger",
-          "navnetyper":
-          [
-            { "kode": "1501", "navn": "Li", "visningsnavn": "Li" },
-            { "kode": "1502", "navn": "Bakke", "visningsnavn": "Bakke" },
-            { "kode": "1503", "navn": "Fjellside", "visningsnavn": "Fjellside" }
+          "navnetyper": [
+            {
+              "kode": "1501",
+              "navn": "li",
+              "visningsnavn": "Li"
+            },
+            {
+              "kode": "1502",
+              "navn": "bakke",
+              "visningsnavn": "Bakke"
+            },
+            {
+              "kode": "1503",
+              "navn": "fjellside",
+              "visningsnavn": "Fjellside"
+            }
           ]
         },
         {
           "kode": "1600",
-          "navn": "Terrengdetaljer",
-          "visningsnavn": "Terrengdetalj",
-          "navnetyper":
-          [
-            { "kode": "1601", "navn": "Hylle", "visningsnavn": "Hylle" },
-            { "kode": "1602", "navn": "Stup", "visningsnavn": "Stup" },
-            { "kode": "1603", "navn": "Heller", "visningsnavn": "Heller" },
-            { "kode": "1604", "navn": "Grotte", "visningsnavn": "Grotte" },
-            { "kode": "1605", "navn": "GeologiskStruktur", "visningsnavn": "Geologisk struktur" },
-            { "kode": "1606", "navn": "AnnenTerrengdetalj", "visningsnavn": "Terrengdetalj" }
+          "navn": "terrengdetaljer",
+          "visningsnavn": "Terrengdetaljer",
+          "navnetyper": [
+            {
+              "kode": "1601",
+              "navn": "hylle",
+              "visningsnavn": "Hylle"
+            },
+            {
+              "kode": "1602",
+              "navn": "stup",
+              "visningsnavn": "Stup"
+            },
+            {
+              "navn": "hammar",
+              "visningsnavn": "Hammar"
+            },            
+            {
+              "kode": "1603",
+              "navn": "heller",
+              "visningsnavn": "Heller"
+            },
+            {
+              "kode": "1604",
+              "navn": "grotte",
+              "visningsnavn": "Grotte"
+            },
+            {
+              "kode": "1605",
+              "navn": "geologiskStruktur",
+              "visningsnavn": "Geologisk struktur"
+            },
+            {
+              "kode": "1606",
+              "navn": "annenTerrengdetalj",
+              "visningsnavn": "Annen terrengdetalj"
+            }
           ]
         }
       ]
     },
     {
       "kode": "2000",
-      "navn": "Markslag",
+      "navn": "markslag",
       "visningsnavn": "Markslag",
-      "navnetypeGrupper":
-      [
+      "navnetypeGrupper": [
         {
           "kode": "2100",
-          "navn": "BartFjell",
+          "navn": "bartFjell",
           "visningsnavn": "Bart fjell",
-          "navnetyper":
-          [
-            { "kode": "2101", "navn": "FjellIDagen", "visningsnavn": "Fjell i dagen" }
+          "navnetyper": [
+            {
+              "kode": "2101",
+              "navn": "fjellIDagen",
+              "visningsnavn": "Fjell i dagen"
+            },
+            {
+              "navn": "sva",
+              "visningsnavn": "Sva"
+            }
           ]
         },
         {
           "kode": "2200",
-          "navn": "Løsmasseavsetninger",
+          "navn": "løsmasseavsetninger",
           "visningsnavn": "Løsmasseavsetninger",
-          "navnetyper":
-          [
-            { "kode": "2201", "navn": "Ur", "visningsnavn": "Ur" },
-            { "kode": "2202", "navn": "Stein", "visningsnavn": "Stein" },
-            { "kode": "2203", "navn": "Sand", "visningsnavn": "Sand" },
-            { "kode": "2204", "navn": "Elvemel", "visningsnavn": "Elvemel" },
-            { "kode": "2205", "navn": "Øyr", "visningsnavn": "Øyr" },
-            { "kode": "2206", "navn": "Skredområde", "visningsnavn": "Skredområde" }
+          "navnetyper": [
+            {
+              "kode": "2201",
+              "navn": "ur",
+              "visningsnavn": "Ur"
+            },
+            {
+              "kode": "2202",
+              "navn": "stein",
+              "visningsnavn": "Stein"
+            },
+            {
+              "kode": "2203",
+              "navn": "sand",
+              "visningsnavn": "Sand"
+            },
+            {
+              "kode": "2204",
+              "navn": "elvemel",
+              "visningsnavn": "Elvemel"
+            },
+            {
+              "kode": "2205",
+              "navn": "øyr",
+              "visningsnavn": "Øyr"
+            },
+            {
+              "kode": "2206",
+              "navn": "skredområde",
+              "visningsnavn": "Skredområde"
+            }
           ]
         },
         {
           "kode": "2300",
-          "navn": "Vegetasjon",
+          "navn": "vegetasjon",
           "visningsnavn": "Vegetasjon",
-          "navnetyper":
-          [
-            { "kode": "2301", "navn": "Skog", "visningsnavn": "Skog" },
-            { "kode": "2302", "navn": "Skogholt", "visningsnavn": "Skogholt" }
+          "navnetyper": [
+            {
+              "kode": "2301",
+              "navn": "skog",
+              "visningsnavn": "Skog"
+            },
+            {
+              "kode": "2302",
+              "navn": "skogholt",
+              "visningsnavn": "Skogholt"
+            }
           ]
         },
         {
           "kode": "2400",
-          "navn": "Våtmark",
+          "navn": "våtmark",
           "visningsnavn": "Våtmark",
-          "navnetyper":
-          [
-            { "kode": "2401", "navn": "Myr", "visningsnavn": "Myr" }
+          "navnetyper": [
+            {
+              "kode": "2401",
+              "navn": "myr",
+              "visningsnavn": "Myr"
+            },
+            {
+              "navn": "våtmarksområde",
+              "visningsnavn": "Våtmarksområde"
+            }
           ]
         },
         {
           "kode": "2500",
-          "navn": "Dyrkamark",
+          "navn": "dyrkamark",
           "visningsnavn": "Dyrkamark",
-          "navnetyper":
-          [
-            { "kode": "2501", "navn": "Eng", "visningsnavn": "Eng" },
-            { "kode": "2502", "navn": "Jorde", "visningsnavn": "Jorde" },
-            { "kode": "2503", "navn": "Havnehage", "visningsnavn": "Havnehage" },
-            { "kode": "2504", "navn": "Setervoll", "visningsnavn": "Setervoll" },
-            { "kode": "2505", "navn": "Melkeplass", "visningsnavn": "Melkeplass" },
-            { "kode": "2506", "navn": "Utmark", "visningsnavn": "Utmark" }
+          "navnetyper": [
+            {
+              "kode": "2501",
+              "navn": "eng",
+              "visningsnavn": "Eng"
+            },
+            {
+              "kode": "2502",
+              "navn": "jorde",
+              "visningsnavn": "Jorde"
+            },
+            {
+              "kode": "2503",
+              "navn": "havnehage",
+              "visningsnavn": "Havnehage"
+            },
+            {
+              "kode": "2504",
+              "navn": "setervoll",
+              "visningsnavn": "Setervoll"
+            },
+            {
+              "kode": "2505",
+              "navn": "melkeplass",
+              "visningsnavn": "Melkeplass"
+            },
+            {
+              "kode": "2506",
+              "navn": "utmark",
+              "visningsnavn": "Utmark"
+            },
+            {
+              "navn": "reinbeitedistrikt",
+              "visningsnavn": "Reinbeitedistrikt"
+            }
           ]
         },
         {
           "kode": "2600",
-          "navn": "IsOgPermafrost",
+          "navn": "isOgPermafrost",
           "visningsnavn": "Is og permafrost",
-          "navnetyper":
-          [
-            { "kode": "2601", "navn": "Isbre", "visningsnavn": "Isbre" },
-            { "kode": "2602", "navn": "Fonn", "visningsnavn": "Fonn" },
-            { "kode": "2603", "navn": "Iskuppel", "visningsnavn": "Iskuppel" }
+          "navnetyper": [
+            {
+              "kode": "2601",
+              "navn": "isbre",
+              "visningsnavn": "Isbre"
+            },
+            {
+              "kode": "2602",
+              "navn": "fonn",
+              "visningsnavn": "Fonn"
+            },
+            {
+              "kode": "2603",
+              "navn": "iskuppel",
+              "visningsnavn": "Iskuppel"
+            }
           ]
         },
         {
           "kode": "2700",
-          "navn": "UttakOgDeponi",
+          "navn": "uttakOgDeponi",
           "visningsnavn": "Uttak og deponi",
-          "navnetyper":
-          [
-            { "kode": "2701", "navn": "Torvtak", "visningsnavn": "Torvtak" },
-            { "kode": "2702", "navn": "GrustakSteinbrudd", "visningsnavn": "Grustak/steinbrudd" },
-            { "kode": "2703", "navn": "Bergverk", "visningsnavn": "Bergverk (underjord./dagbrudd)" },
-            { "kode": "2704", "navn": "Fyllplass", "visningsnavn": "Fyllplass" }
+          "navnetyper": [
+            {
+              "kode": "2701",
+              "navn": "torvtak",
+              "visningsnavn": "Torvtak"
+            },
+            {
+              "kode": "2702",
+              "navn": "grustakSteinbrudd",
+              "visningsnavn": "Grustak/steinbrudd"
+            },
+            {
+              "kode": "2703",
+              "navn": "bergverk",
+              "visningsnavn": "Bergverk"
+            },
+            {
+              "kode": "2704",
+              "navn": "fyllplass",
+              "visningsnavn": "Fyllplass"
+            }
           ]
         }
       ]
     },
     {
       "kode": "3000",
-      "navn": "Ferskvann",
+      "navn": "ferskvann",
       "visningsnavn": "Ferskvann",
-      "navnetypeGrupper":
-      [
+      "navnetypeGrupper": [
         {
           "kode": "3100",
-          "navn": "StilleståendeVann",
+          "navn": "stilleståendeVann",
           "visningsnavn": "Stillestående vann",
-          "navnetyper":
-          [
-            { "kode": "3101", "navn": "Innsjø", "visningsnavn": "Innsjø" },
-            { "kode": "3102", "navn": "DelAvInnsjø", "visningsnavn": "Del av innsjø" },
-            { "kode": "3103", "navn": "Vann", "visningsnavn": "Vann" },
-            { "kode": "3104", "navn": "GruppeAvVann", "visningsnavn": "Gruppe av vann" },
-            { "kode": "3105", "navn": "Tjern", "visningsnavn": "Tjern" },
-            { "kode": "3106", "navn": "GruppeAvTjern", "visningsnavn": "Gruppe av tjern" },
-            { "kode": "3107", "navn": "Pytt", "visningsnavn": "Pytt" },
-            { "kode": "3108", "navn": "Dam", "visningsnavn": "Dam" }
+          "navnetyper": [
+            {
+              "kode": "3101",
+              "navn": "innsjø",
+              "visningsnavn": "Innsjø"
+            },
+            {
+              "kode": "3102",
+              "navn": "delAvInnsjø",
+              "visningsnavn": "Del av innsjø"
+            },
+            {
+              "navn": "delAvVann",
+              "visningsnavn": "Del av vann"
+            },
+            {
+              "kode": "3103",
+              "navn": "vann",
+              "visningsnavn": "Vann"
+            },
+            {
+              "kode": "3104",
+              "navn": "gruppeAvVann",
+              "visningsnavn": "Gruppe av vann"
+            },
+            {
+              "kode": "3105",
+              "navn": "tjern",
+              "visningsnavn": "Tjern"
+            },
+            {
+              "kode": "3106",
+              "navn": "gruppeAvTjern",
+              "visningsnavn": "Gruppe av tjern"
+            },
+            {
+              "kode": "3107",
+              "navn": "pytt",
+              "visningsnavn": "Pytt"
+            },
+            {
+              "kode": "3108",
+              "navn": "dam",
+              "visningsnavn": "Dam"
+            }
           ]
         },
         {
           "kode": "3200",
-          "navn": "Ferskvannskontur",
+          "navn": "ferskvannskontur",
           "visningsnavn": "Ferskvannskontur",
-          "navnetyper":
-          [
-            { "kode": "3201", "navn": "Øy", "visningsnavn": "Øy" },
-            { "kode": "3202", "navn": "Øygruppe", "visningsnavn": "Øygruppe" },
-            { "kode": "3203", "navn": "Holme", "visningsnavn": "Holme" },
-            { "kode": "3204", "navn": "Nes", "visningsnavn": "Nes" },
-            { "kode": "3205", "navn": "Halvøy", "visningsnavn": "Halvøy" },
-            { "kode": "3206", "navn": "Vik", "visningsnavn": "Vik" },
-            { "kode": "3207", "navn": "Strand", "visningsnavn": "Strand" },
-            { "kode": "3208", "navn": "Sund", "visningsnavn": "Sund" },
-            { "kode": "3209", "navn": "Eid", "visningsnavn": "Eid" }
+          "navnetyper": [
+            {
+              "kode": "3201",
+              "navn": "øy",
+              "visningsnavn": "Øy"
+            },
+            {
+              "kode": "3202",
+              "navn": "øygruppe",
+              "visningsnavn": "Øygruppe"
+            },
+            {
+              "kode": "3203",
+              "navn": "holme",
+              "visningsnavn": "Holme"
+            },
+            {
+              "kode": "3204",
+              "navn": "nes",
+              "visningsnavn": "Nes"
+            },
+            {
+              "kode": "3205",
+              "navn": "halvøy",
+              "visningsnavn": "Halvøy"
+            },
+            {
+              "kode": "3206",
+              "navn": "vik",
+              "visningsnavn": "Vik"
+            },
+            {
+              "kode": "3207",
+              "navn": "strand",
+              "visningsnavn": "Strand"
+            },
+            {
+              "kode": "3208",
+              "navn": "sund",
+              "visningsnavn": "Sund"
+            },
+            {
+              "kode": "3209",
+              "navn": "eid",
+              "visningsnavn": "Eid"
+            }
           ]
         },
         {
           "kode": "3300",
-          "navn": "GrunnerIFerskvann",
+          "navn": "grunnerIFerskvann",
           "visningsnavn": "Grunner i ferskvann",
-          "navnetyper":
-          [
-            { "kode": "3301", "navn": "Grunne", "visningsnavn": "Grunne" },
-            { "kode": "3302", "navn": "Skjær", "visningsnavn": "Skjær" },
-            { "kode": "3303", "navn": "Båe", "visningsnavn": "Båe" },
-            { "kode": "3304", "navn": "Banke", "visningsnavn": "Banke" }
+          "navnetyper": [
+            {
+              "kode": "3301",
+              "navn": "grunne",
+              "visningsnavn": "Grunne"
+            },
+            {
+              "kode": "3302",
+              "navn": "skjær",
+              "visningsnavn": "Skjær"
+            },
+            {
+              "kode": "3303",
+              "navn": "båe",
+              "visningsnavn": "Båe "
+            },
+            {
+              "kode": "3304",
+              "navn": "banke",
+              "visningsnavn": "Banke "
+            }
           ]
         },
         {
           "kode": "3400",
-          "navn": "RennendeVann",
+          "navn": "rennendeVann",
           "visningsnavn": "Rennende vann",
-          "navnetyper":
-          [
-            { "kode": "3401", "navn": "Elv", "visningsnavn": "Elv" },
-            { "kode": "3402", "navn": "Bekk", "visningsnavn": "Bekk" },
-            { "kode": "3403", "navn": "Grøft", "visningsnavn": "Grøft" },
-            { "kode": "3404", "navn": "Foss", "visningsnavn": "Foss" },
-            { "kode": "3405", "navn": "Stryk", "visningsnavn": "Stryk" },
-            { "kode": "3406", "navn": "Os", "visningsnavn": "Os" },
-            { "kode": "3407", "navn": "Høl", "visningsnavn": "Høl" },
-            { "kode": "3408", "navn": "Lon", "visningsnavn": "Lone" },
-            { "kode": "3409", "navn": "Fløtningsanlegg", "visningsnavn": "Fløtningsannlegg" },
-            { "kode": "3410", "navn": "Kilde", "visningsnavn": "Kilde" },
-            { "kode": "3411", "navn": "Elvesving", "visningsnavn": "Elvesving" },
-            { "kode": "3412", "navn": "NesVedElver", "visningsnavn": "Nes ved elver" }
+          "navnetyper": [
+            {
+              "kode": "3401",
+              "navn": "elv",
+              "visningsnavn": "Elv"
+            },
+            {
+              "kode": "3402",
+              "navn": "bekk",
+              "visningsnavn": "Bekk"
+            },
+            {
+              "kode": "3403",
+              "navn": "grøft",
+              "visningsnavn": "Grøft"
+            },
+            {
+              "kode": "3404",
+              "navn": "foss",
+              "visningsnavn": "Foss"
+            },
+            {
+              "kode": "3405",
+              "navn": "stryk",
+              "visningsnavn": "Stryk"
+            },
+            {
+              "kode": "3406",
+              "navn": "os",
+              "visningsnavn": "Os"
+            },
+            {
+              "kode": "3407",
+              "navn": "høl",
+              "visningsnavn": "Høl"
+            },
+            {
+              "kode": "3408",
+              "navn": "lon",
+              "visningsnavn": "Lon"
+            },
+            {
+              "kode": "3409",
+              "navn": "fløtningsanlegg",
+              "visningsnavn": "Fløtningsanlegg"
+            },
+            {
+              "kode": "3410",
+              "navn": "kilde",
+              "visningsnavn": "Kilde"
+            },
+            {
+              "kode": "3411",
+              "navn": "elvesving",
+              "visningsnavn": "Elvesving"
+            },
+            {
+              "kode": "3412",
+              "navn": "nesVedElver",
+              "visningsnavn": "Nes ved elver"
+            }
           ]
         },
         {
           "kode": "3500",
-          "navn": "DetaljerIFerskvann",
+          "navn": "detaljerIFerskvann",
           "visningsnavn": "Detaljer i ferskvann",
-          "navnetyper":
-          [
-            { "kode": "3501", "navn": "AnnenVanndetalj", "visningsnavn": "Vanndetalj" }
+          "navnetyper": [
+            {
+              "kode": "3501",
+              "navn": "annenVanndetalj",
+              "visningsnavn": "Annen vanndetalj"
+            },
+            {
+              "navn": "vannstandsmåler",
+              "visningsnavn": "Vannstandsmåler"
+            }
           ]
         }
       ]
     },
     {
       "kode": "4000",
-      "navn": "Sjø",
+      "navn": "sjø",
       "visningsnavn": "Sjø",
-      "navnetypeGrupper":
-      [
+      "navnetypeGrupper": [
         {
           "kode": "4100",
-          "navn": "Farvann",
+          "navn": "farvann",
           "visningsnavn": "Farvann",
-          "navnetyper":
-          [
-            { "kode": "4101", "navn": "Havområde", "visningsnavn": "Havområde" },
-            { "kode": "4102", "navn": "Havstrøm", "visningsnavn": "Havstrøm" },
-            { "kode": "4103", "navn": "Sjøstykke", "visningsnavn": "Sjøstykke" },
-            { "kode": "4104", "navn": "Fjordmunning", "visningsnavn": "Fjordmunning" },
-            { "kode": "4105", "navn": "Fjord", "visningsnavn": "Fjord" },
-            { "kode": "4106", "navn": "FiskeplassISjø", "visningsnavn": "Fiskeplass i sjø" }
+          "navnetyper": [
+            {
+              "kode": "4101",
+              "navn": "havområde",
+              "visningsnavn": "Havområde"
+            },
+            {
+              "kode": "4102",
+              "navn": "havstrøm",
+              "visningsnavn": "Havstrøm"
+            },
+            {
+              "kode": "4103",
+              "navn": "sjøstykke",
+              "visningsnavn": "Sjøstykke"
+            },
+            {
+              "kode": "4104",
+              "navn": "fjordmunning",
+              "visningsnavn": "Fjordmunning"
+            },
+            {
+              "kode": "4105",
+              "navn": "fjord",
+              "visningsnavn": "Fjord"
+            },
+            {
+              "kode": "4106",
+              "navn": "fiskeplassISjø",
+              "visningsnavn": "Fiskeplass i sjø"
+            }
           ]
         },
         {
           "kode": "4200",
-          "navn": "Kystkontur",
+          "navn": "kystkontur",
           "visningsnavn": "Kystkontur",
-          "navnetyper":
-          [
-            { "kode": "4201", "navn": "ØyISjø", "visningsnavn": "Øy i sjø" },
-            { "kode": "4202", "navn": "ØygruppeISjø", "visningsnavn": "Øygruppe i sjø" },
-            { "kode": "4203", "navn": "HolmeISjø", "visningsnavn": "Holme i sjø" },
-            { "kode": "4204", "navn": "HolmegruppeISjø", "visningsnavn": "Holmegruppe i sjø" },
-            { "kode": "4205", "navn": "NesISjø", "visningsnavn": "Nes i sjø" },
-            { "kode": "4206", "navn": "HalvøyISjø", "visningsnavn": "Halvøy i sjø" },
-            { "kode": "4207", "navn": "VikISjø", "visningsnavn": "Vik i sjø" },
-            { "kode": "4208", "navn": "StrandISjø", "visningsnavn": "Strand i sjø" },
-            { "kode": "4209", "navn": "SundISjø", "visningsnavn": "Sund i sjø" },
-            { "kode": "4210", "navn": "EidISjø", "visningsnavn": "Eid i sjø" },
-            { "kode": "4211", "navn": "VågISjø", "visningsnavn": "Våg" }
+          "navnetyper": [
+            {
+              "kode": "4201",
+              "navn": "øyISjø",
+              "visningsnavn": "Øy i sjø"
+            },
+            {
+              "kode": "4202",
+              "navn": "øygruppeISjø",
+              "visningsnavn": "Øygruppe i sjø"
+            },
+            {
+              "kode": "4203",
+              "navn": "holmeISjø",
+              "visningsnavn": "Holme i sjø"
+            },
+            {
+              "kode": "4204",
+              "navn": "holmegruppeISjø",
+              "visningsnavn": "Holmegruppe i sjø"
+            },
+            {
+              "kode": "4205",
+              "navn": "nesISjø",
+              "visningsnavn": "Nes i sjø"
+            },
+            {
+              "kode": "4206",
+              "navn": "halvøyISjø",
+              "visningsnavn": "Halvøy i sjø"
+            },
+            {
+              "kode": "4207",
+              "navn": "vikISjø",
+              "visningsnavn": "Vik i sjø"
+            },
+            {
+              "kode": "4208",
+              "navn": "strandISjø",
+              "visningsnavn": "Strand i sjø"
+            },
+            {
+              "kode": "4209",
+              "navn": "sundISjø",
+              "visningsnavn": "Sund i sjø"
+            },
+            {
+              "kode": "4210",
+              "navn": "eidISjø",
+              "visningsnavn": "Eid i sjø"
+            },
+            {
+              "kode": "4211",
+              "navn": "vågISjø",
+              "visningsnavn": "Våg i sjø"
+            }
           ]
         },
         {
           "kode": "4300",
-          "navn": "GrunnerISjø",
+          "navn": "grunnerISjø",
           "visningsnavn": "Grunner i sjø",
-          "navnetyper":
-          [
-            { "kode": "4301", "navn": "GrunneISjø", "visningsnavn": "Grunne i sjø" },
-            { "kode": "4302", "navn": "SkjærISjø", "visningsnavn": "Skjær i sjø" },
-            { "kode": "4303", "navn": "BåeISjø", "visningsnavn": "Båe i sjø" },
-            { "kode": "4304", "navn": "KlakkISjø", "visningsnavn": "Klakk i sjø" }
+          "navnetyper": [
+            {
+              "kode": "4301",
+              "navn": "grunneISjø",
+              "visningsnavn": "Grunne i sjø"
+            },
+            {
+              "kode": "4302",
+              "navn": "skjærISjø",
+              "visningsnavn": "Skjær i sjø"
+            },
+            {
+              "kode": "4303",
+              "navn": "båeISjø",
+              "visningsnavn": "Båe i sjø"
+            },
+            {
+              "kode": "4304",
+              "navn": "klakkISjø",
+              "visningsnavn": "Klakk i sjø"
+            }
           ]
         },
         {
           "kode": "4400",
-          "navn": "Sjøbunn",
+          "navn": "sjøbunn",
           "visningsnavn": "Sjøbunn",
-          "navnetyper":
-          [
-            { "kode": "4401", "navn": "BankeISjø", "visningsnavn": "Banke i sjø" },
-            { "kode": "4402", "navn": "BakkeISjø", "visningsnavn": "Bakke i sjø" },
-            { "kode": "4403", "navn": "BakketoppISjø", "visningsnavn": "Bakketopp i sjø" },
-            { "kode": "4404", "navn": "SøkkISjø", "visningsnavn": "Søkk i sjø" },
-            { "kode": "4405", "navn": "RenneKløftISjø", "visningsnavn": "Renne/Kløft i sjø" },
-            { "kode": "4406", "navn": "RyggISjø", "visningsnavn": "Rygg i sjø" },
-            { "kode": "4407", "navn": "MoreneryggISjø", "visningsnavn": "Morenerygg i sjø" },
-            { "kode": "4408", "navn": "EggISjø", "visningsnavn": "Egg i sjø" },
-            { "kode": "4409", "navn": "Korallrev", "visningsnavn": "Korallrev" },
-            { "kode": "4410", "navn": "RevISjø", "visningsnavn": "Rev i sjø" },
-            { "kode": "4411", "navn": "HylleISjø", "visningsnavn": "Hylle i sjø" },
-            { "kode": "4412", "navn": "UndersjøiskVegg", "visningsnavn": "Undersjøisk vegg" },
-            { "kode": "4413", "navn": "RasISjø", "visningsnavn": "Ras i sjø" },
-            { "kode": "4414", "navn": "FjelltoppISjø", "visningsnavn": "Fjelltopp i sjø" },
-            { "kode": "4415", "navn": "FjellkjedeISjø", "visningsnavn": "Fjellkjede i sjø" },
-            { "kode": "4416", "navn": "SadelISjø", "visningsnavn": "Sadel i sjø" },
-            { "kode": "4417", "navn": "SokkelISjø", "visningsnavn": "Sokkel i sjø" },
-            { "kode": "4418", "navn": "VulkanISjø", "visningsnavn": "Vulkan i sjø" },
-            { "kode": "4419", "navn": "PlatåISjø", "visningsnavn": "Platå i sjø" },
-            { "kode": "4420", "navn": "Kontinentalsokkel", "visningsnavn": "Kontinentalsokkel" },
-            { "kode": "4421", "navn": "GassOljefeltISjø", "visningsnavn": "Gass-/oljefelt i sjø" },
-            { "kode": "4422", "navn": "BassengISjø", "visningsnavn": "Basseng i sjø" },
-            { "kode": "4423", "navn": "Havdyp", "visningsnavn": "Havdyp" }
+          "navnetyper": [
+            {
+              "kode": "4401",
+              "navn": "bankeISjø",
+              "visningsnavn": "Banke i sjø"
+            },
+            {
+              "kode": "4402",
+              "navn": "bakkeISjø",
+              "visningsnavn": "Bakke i sjø"
+            },
+            {
+              "kode": "4403",
+              "navn": "bakketoppISjø",
+              "visningsnavn": "Bakketopp i sjø"
+            },
+            {
+              "kode": "4404",
+              "navn": "søkkISjø",
+              "visningsnavn": "Søkk i sjø"
+            },
+            {
+              "kode": "4405",
+              "navn": "renneKløftISjø",
+              "visningsnavn": "Renne/Kløft i sjø"
+            },
+            {
+              "kode": "4406",
+              "navn": "ryggISjø",
+              "visningsnavn": "Rygg i sjø"
+            },
+            {
+              "kode": "4407",
+              "navn": "moreneryggISjø",
+              "visningsnavn": "Morenerygg i sjø"
+            },
+            {
+              "kode": "4408",
+              "navn": "eggISjø",
+              "visningsnavn": "Egg i sjø"
+            },
+            {
+              "kode": "4409",
+              "navn": "korallrev",
+              "visningsnavn": "Korallrev"
+            },
+            {
+              "kode": "4410",
+              "navn": "revISjø",
+              "visningsnavn": "Rev i sjø"
+            },
+            {
+              "kode": "4411",
+              "navn": "hylleISjø",
+              "visningsnavn": "Hylle i sjø"
+            },
+            {
+              "kode": "4412",
+              "navn": "undersjøiskVegg",
+              "visningsnavn": "Undersjøisk vegg"
+            },
+            {
+              "kode": "4413",
+              "navn": "rasISjø",
+              "visningsnavn": "Ras i sjø"
+            },
+            {
+              "kode": "4414",
+              "navn": "fjelltoppISjø",
+              "visningsnavn": "Fjelltopp i sjø"
+            },
+            {
+              "kode": "4415",
+              "navn": "fjellkjedeISjø",
+              "visningsnavn": "Fjellkjede i sjø"
+            },
+            {
+              "kode": "4416",
+              "navn": "sadelISjø",
+              "visningsnavn": "Sadel i sjø"
+            },
+            {
+              "kode": "4417",
+              "navn": "sokkelISjø",
+              "visningsnavn": "Sokkel i sjø"
+            },
+            {
+              "kode": "4418",
+              "navn": "vulkanISjø",
+              "visningsnavn": "Vulkan i sjø"
+            },
+            {
+              "kode": "4419",
+              "navn": "platåISjø",
+              "visningsnavn": "Platå i sjø"
+            },
+            {
+              "kode": "4420",
+              "navn": "kontinentalsokkel",
+              "visningsnavn": "Kontinentalsokkel"
+            },
+            {
+              "kode": "4421",
+              "navn": "gass-OljefeltISjø",
+              "tidlnavn": "gassOljefeltISjø",
+              "visningsnavn": "Gass-/oljefelt i sjø"
+            },
+            {
+              "kode": "4422",
+              "navn": "bassengISjø",
+              "visningsnavn": "Basseng i sjø"
+            },
+            {
+              "kode": "4423",
+              "navn": "havdyp",
+              "visningsnavn": "Havdyp"
+            }
           ]
         },
         {
           "kode": "4500",
-          "navn": "DetaljISjø",
+          "navn": "detaljISjø",
           "visningsnavn": "Detalj i sjø",
-          "navnetyper":
-          [
-            { "kode": "4501", "navn": "Sjødetalj", "visningsnavn": "Sjødetalj" }
+          "navnetyper": [
+            {
+              "kode": "4501",
+              "navn": "sjødetalj",
+              "visningsnavn": "Sjødetalj"
+            }
           ]
         }
       ]
     },
     {
       "kode": "5000",
-      "navn": "Bebyggelse",
+      "navn": "bebyggelse",
       "visningsnavn": "Bebyggelse",
-      "navnetypeGrupper":
-      [
+      "navnetypeGrupper": [
         {
           "kode": "5100",
-          "navn": "Bebyggelsesområder",
+          "navn": "bebyggelsesområder",
           "visningsnavn": "Bebyggelsesområder",
-          "navnetyper":
-          [
-            { "kode": "5101", "navn": "By", "visningsnavn": "By" },
-            { "kode": "5102", "navn": "Bydel", "visningsnavn": "Bydel" },
-            { "kode": "5103", "navn": "Tettsted", "visningsnavn": "Tettsted" },
-            { "kode": "5104", "navn": "Tettsteddel", "visningsnavn": "Tettsteddel" },
-            { "kode": "5105", "navn": "Tettbebyggelse", "visningsnavn": "Tettbebyggelse" },
-            { "kode": "5106", "navn": "Bygdelag", "visningsnavn": "Bygdelag (bygd)" },
-            { "kode": "5107", "navn": "Grend", "visningsnavn": "Grend" },
-            { "kode": "5108", "navn": "Boligfelt", "visningsnavn": "Boligfelt" },
-            { "kode": "5109", "navn": "Hyttefelt", "visningsnavn": "Hyttefelt" },
-            { "kode": "5110", "navn": "Industriområde", "visningsnavn": "Industriområde" },
-            { "kode": "5111", "navn": "HistoriskBosetting", "visningsnavn": "Historisk bosetting" },
-            { "kode": "5112", "navn": "Torg", "visningsnavn": "Plass/torv (i tettsted/by)" }
+          "navnetyper": [
+            {
+              "kode": "5101",
+              "navn": "by",
+              "visningsnavn": "By"
+            },
+            {
+              "kode": "5102",
+              "navn": "bydel",
+              "visningsnavn": "Bydel"
+            },
+            {
+              "kode": "5103",
+              "navn": "tettsted",
+              "visningsnavn": "Tettsted"
+            },
+            {
+              "kode": "5104",
+              "navn": "tettsteddel",
+              "visningsnavn": "Tettsteddel"
+            },
+            {
+              "kode": "5105",
+              "navn": "tettbebyggelse",
+              "visningsnavn": "Tettbebyggelse"
+            },
+            {
+              "kode": "5106",
+              "navn": "bygdelagBygd",
+              "tidlnavn": "bygdelag",
+              "visningsnavn": "Bygdelag (bygd)"
+            },
+            {
+              "kode": "5107",
+              "navn": "grend",
+              "visningsnavn": "Grend"
+            },
+            {
+              "kode": "5108",
+              "navn": "boligfelt",
+              "visningsnavn": "Boligfelt"
+            },
+            {
+              "kode": "5109",
+              "navn": "hyttefelt",
+              "visningsnavn": "Hyttefelt"
+            },
+            {
+              "kode": "5110",
+              "navn": "industriområde",
+              "visningsnavn": "Industriområde"
+            },
+            {
+              "kode": "5111",
+              "navn": "historiskBosetting",
+              "visningsnavn": "Historisk bosetting"
+            },
+            {
+              "kode": "5112",
+              "navn": "torg",
+              "visningsnavn": "Torg"
+            }
           ]
         },
         {
           "kode": "5200",
-          "navn": "Gardsbebyggelse",
+          "navn": "gardsbebyggelse",
           "visningsnavn": "Gardsbebyggelse",
-          "navnetyper":
-          [
-            { "kode": "5201", "navn": "Navnegard", "visningsnavn": "Navnegard" },
-            { "kode": "5202", "navn": "Gard", "visningsnavn": "Gard" },
-            { "kode": "5203", "navn": "Bruk", "visningsnavn": "Bruk (gardsbruk)" },
-            { "kode": "5204", "navn": "Seter", "visningsnavn": "Seter (sel, støl)" },
-            { "kode": "5205", "navn": "ByggForJordbrukFiskeFangst", "visningsnavn": "Bygg for jordbr, fiske, fangst" },
-            { "kode": "5206", "navn": "Eiendom", "visningsnavn": "Eiendommer" },
-            { "kode": "5207", "navn": "Gjerde", "visningsnavn": "Gjerde" }
+          "navnetyper": [
+            {
+              "kode": "5201",
+              "navn": "navnegard",
+              "visningsnavn": "Navnegard"
+            },
+            {
+              "kode": "5202",
+              "navn": "gard",
+              "visningsnavn": "Gard"
+            },
+            {
+              "kode": "5203",
+              "navn": "bruk",
+              "visningsnavn": "Bruk"
+            },
+            {
+              "kode": "5204",
+              "navn": "seterStøl",
+              "tidlnavn": "seter",
+              "visningsnavn": "Seter/støl"
+            },
+            {
+              "navn": "stølsSetereiendom",
+              "visningsnavn": "Støls-/setereiendom"
+            },
+            {
+              "kode": "5205",
+              "navn": "byggForJordbrukFiskeOgFangst",
+              "tidlnavn": "byggForJordbrukFiskeFangst",
+              "visningsnavn": "Bygg for jordbruk, fiske og fangst"
+            },
+            {
+              "kode": "5206",
+              "navn": "eiendom",
+              "visningsnavn": "Eiendom"
+            },
+            {
+              "navn": "eiendomsteig",
+              "visningsnavn": "Eiendomsteig"
+            },
+            {
+              "kode": "5207",
+              "navn": "gjerde",
+              "visningsnavn": "Gjerde"
+            }
           ]
         },
         {
           "kode": "5300",
-          "navn": "Bolighus",
+          "navn": "bolighus",
           "visningsnavn": "Bolighus",
-          "navnetyper":
-          [
-            { "kode": "5301", "navn": "MindreBoligbygg", "visningsnavn": "Enebolig/mindre bolig (villa)" },
-            { "kode": "5302", "navn": "Fritidsbolig", "visningsnavn": "Fritidsbolig (hytte,sommerhus)" },
-            { "kode": "5303", "navn": "Boligblokk", "visningsnavn": "Boligblokk" },
-            { "kode": "5304", "navn": "Borettslag", "visningsnavn": "Borettslag" },
-            { "kode": "5305", "navn": "GammelBosettingsplass", "visningsnavn": "Gammel bosettingsplass" }
+          "navnetyper": [
+            {
+              "kode": "5301",
+              "navn": "eneboligMindreBoligbygg",
+              "tidlnavn": "mindreBoligbygg",
+              "visningsnavn": "Enebolig/mindre boligbygg"
+            },
+            {
+              "kode": "5302",
+              "navn": "fritidsbolig",
+              "visningsnavn": "Fritidsbolig"
+            },
+            {
+              "kode": "5303",
+              "navn": "boligblokk",
+              "visningsnavn": "Boligblokk"
+            },
+            {
+              "kode": "5304",
+              "navn": "borettslag",
+              "visningsnavn": "Borettslag"
+            },
+            {
+              "kode": "5305",
+              "navn": "gammelBosettingsplass",
+              "visningsnavn": "Gammel bosettingsplass"
+            },
+            {
+              "navn": "tuft",
+              "visningsnavn": "Tuft"
+            }
           ]
         },
         {
           "kode": "5400",
-          "navn": "Næring",
+          "navn": "næring",
           "visningsnavn": "Næring",
-          "navnetyper":
-          [
-            { "kode": "5401", "navn": "Forretningsbygg", "visningsnavn": "Forretningsbygg" },
-            { "kode": "5402", "navn": "Serveringssted", "visningsnavn": "Serveringssted" },
-            { "kode": "5403", "navn": "Hotell", "visningsnavn": "Hotell" },
-            { "kode": "5404", "navn": "Pensjonat", "visningsnavn": "Pensjonat" },
-            { "kode": "5405", "navn": "Turisthytte", "visningsnavn": "Turisthytte" },
-            { "kode": "5406", "navn": "Campingplass", "visningsnavn": "Campingplass" },
-            { "kode": "5407", "navn": "AnnenIndustriOgLagerbygning", "visningsnavn": "Verksted" },
-            { "kode": "5408", "navn": "Fabrikk", "visningsnavn": "Fabrikk" },
-            { "kode": "5409", "navn": "Oppdrettsanlegg", "visningsnavn": "Oppdrettsanlegg" }
+          "navnetyper": [
+            {
+              "kode": "5401",
+              "navn": "forretningsbygg",
+              "visningsnavn": "Forretningsbygg"
+            },
+            {
+              "kode": "5402",
+              "navn": "serveringssted",
+              "visningsnavn": "Serveringssted"
+            },
+            {
+              "kode": "5403",
+              "navn": "hotell",
+              "visningsnavn": "Hotell"
+            },
+            {
+              "kode": "5404",
+              "navn": "pensjonat",
+              "visningsnavn": "Pensjonat"
+            },
+            {
+              "kode": "5405",
+              "navn": "turisthytte",
+              "visningsnavn": "Turisthytte"
+            },
+            {
+              "kode": "5406",
+              "navn": "campingplass",
+              "visningsnavn": "Campingplass"
+            },
+            {
+              "kode": "5407",
+              "navn": "annenIndustri-OgLagerbygning",
+              "tidlnavn": "annenIndustriOgLagerbygning",
+              "visningsnavn": "Annen industri- og lagerbygning"
+            },
+            {
+              "kode": "5408",
+              "navn": "fabrikk",
+              "visningsnavn": "Fabrikk"
+            },
+            {
+              "kode": "5409",
+              "navn": "oppdrettsanlegg",
+              "visningsnavn": "Oppdrettsanlegg"
+            },
+            {
+              "navn": "vannverk",
+              "visningsnavn": "Vannverk"
+            }
           ]
         },
         {
           "kode": "5500",
-          "navn": "Institusjoner",
+          "navn": "institusjoner",
           "visningsnavn": "Institusjoner",
-          "navnetyper":
-          [
-            { "kode": "5501", "navn": "Rådhus", "visningsnavn": "Rådhus (komm, fylke, stat)" },
-            { "kode": "5502", "navn": "Beredsskapsbygning", "visningsnavn": "Vaktstasjon" },
-            { "kode": "5503", "navn": "Sykehus", "visningsnavn": "Sykehus" },
-            { "kode": "5504", "navn": "Helseinstitusjon", "visningsnavn": "Helseinstitusjon" },
-            { "kode": "5505", "navn": "Barnehage", "visningsnavn": "Barnehage" },
-            { "kode": "5506", "navn": "Skole", "visningsnavn": "Skole" },
-            { "kode": "5507", "navn": "UniversitetHøgskole", "visningsnavn": "Universitet/høgskole" },
-            { "kode": "5508", "navn": "Forskningsstasjon", "visningsnavn": "Forskningsstasjon" },
-            { "kode": "5509", "navn": "Fengsel", "visningsnavn": "Fengsel" },
-            { "kode": "5510", "navn": "MilitærtAnlegg", "visningsnavn": "Militært bygg" }
+          "navnetyper": [
+            {
+              "kode": "5501",
+              "navn": "rådhus",
+              "visningsnavn": "Rådhus"
+            },
+            {
+              "kode": "5502",
+              "navn": "vaktstasjonBeredsskapsbygning",
+              "tidlnavn": "beredsskapsbygning",
+              "visningsnavn": "Vaktstasjon/beredsskapsbygning"
+            },
+            {
+              "kode": "5503",
+              "navn": "sykehus",
+              "visningsnavn": "Sykehus"
+            },
+            {
+              "kode": "5504",
+              "navn": "helseinstitusjon",
+              "visningsnavn": "Helseinstitusjon"
+            },
+            {
+              "navn": "boinstitusjon",
+              "visningsnavn": "Boinstitusjon"
+            },
+            {
+              "kode": "5505",
+              "navn": "barnehage",
+              "visningsnavn": "Barnehage"
+            },
+            {
+              "kode": "5506",
+              "navn": "skole",
+              "visningsnavn": "Skole"
+            },
+            {
+              "kode": "5507",
+              "navn": "universitetHøgskole",
+              "visningsnavn": "Universitet/høgskole"
+            },
+            {
+              "kode": "5508",
+              "navn": "forskningsstasjon",
+              "visningsnavn": "Forskningsstasjon"
+            },
+            {
+              "kode": "5509",
+              "navn": "fengsel",
+              "visningsnavn": "Fengsel"
+            },
+            {
+              "kode": "5510",
+              "navn": "militærtByggAnlegg",
+              "tidlnavn": "militærtAnlegg",
+              "visningsnavn": "Militært bygg/anlegg"
+            }
           ]
         },
         {
           "kode": "5600",
-          "navn": "Fritidsanlegg",
+          "navn": "fritidsanlegg",
           "visningsnavn": "Fritidsanlegg",
-          "navnetyper":
-          [
-            { "kode": "5601", "navn": "Park", "visningsnavn": "Park" },
-            { "kode": "5602", "navn": "Idrettsanlegg", "visningsnavn": "Idrettsanlegg" },
-            { "kode": "5603", "navn": "Idrettshall", "visningsnavn": "Idrettshall" },
-            { "kode": "5604", "navn": "Fornøyelsespark", "visningsnavn": "Fornøyelsespark" },
-            { "kode": "5605", "navn": "Skiheis", "visningsnavn": "Skiheis" },
-            { "kode": "5606", "navn": "Alpinanlegg", "visningsnavn": "Slalåm- og utforbakke" },
-            { "kode": "5607", "navn": "Badeplass", "visningsnavn": "Badeplass" }
+          "navnetyper": [
+            {
+              "kode": "5601",
+              "navn": "park",
+              "visningsnavn": "Park"
+            },
+            {
+              "kode": "5602",
+              "navn": "idrettsanlegg",
+              "visningsnavn": "Idrettsanlegg"
+            },
+            {
+              "kode": "5603",
+              "navn": "idrettshall",
+              "visningsnavn": "Idrettshall"
+            },
+            {
+              "kode": "5604",
+              "navn": "fornøyelsespark",
+              "visningsnavn": "Fornøyelsespark"
+            },
+            {
+              "kode": "5605",
+              "navn": "skiheis",
+              "visningsnavn": "Skiheis"
+            },
+            {
+              "kode": "5606",
+              "navn": "alpinanlegg",
+              "visningsnavn": "Alpinanlegg"
+            },
+            {
+              "kode": "5607",
+              "navn": "badeplass",
+              "visningsnavn": "Badeplass"
+            },
+            {
+              "navn": "friluftsområde",
+              "visningsnavn": "Friluftsområde"
+            }            
           ]
         }
       ]
     },
     {
       "kode": "6000",
-      "navn": "Infrastruktur",
+      "navn": "infrastruktur",
       "visningsnavn": "Infrastruktur",
-      "navnetypeGrupper":
-      [
+      "navnetypeGrupper": [
         {
           "kode": "6100",
-          "navn": "Veg",
+          "navn": "veg",
           "visningsnavn": "Veg",
-          "navnetyper":
-          [
-            { "kode": "6101", "navn": "Matrikkeladressenavn", "visningsnavn": "Matrikkeladressenavn" },
-            { "kode": "6102", "navn": "Adressetilleggsnavn", "visningsnavn": "Adressetilleggsnavn" },
-            { "kode": "6103", "navn": "Adressenavn", "visningsnavn": "Adressenavn (veg/gate)" },
-            { "kode": "6104", "navn": "Traktorveg", "visningsnavn": "Traktorveg" },
-            { "kode": "6105", "navn": "Sti", "visningsnavn": "Sti" },
-            { "kode": "6106", "navn": "Vegkryss", "visningsnavn": "Vegkryss (veg/gate)" },
-            { "kode": "6107", "navn": "Vegsving", "visningsnavn": "Vegsving" },
-            { "kode": "6108", "navn": "BakkeIVeg", "visningsnavn": "Bakke (Veg)" },
-            { "kode": "6109", "navn": "Vegstrekning", "visningsnavn": "Vegstrekning" },
-            { "kode": "6110", "navn": "Vad", "visningsnavn": "Vad" },
-            { "kode": "6111", "navn": "Grind", "visningsnavn": "Grind" },
-            { "kode": "6112", "navn": "Tømmervelte", "visningsnavn": "Tømmervelte" },
-            { "kode": "6113", "navn": "Busstopp", "visningsnavn": "Buss stopp" },
-            { "kode": "6114", "navn": "Parkeringsplass", "visningsnavn": "Parkeringsplass" }
+          "navnetyper": [
+            {
+              "kode": "6101",
+              "navn": "matrikkeladressenavn",
+              "visningsnavn": "Matrikkeladressenavn"
+            },
+            {
+              "kode": "6102",
+              "navn": "adressetilleggsnavn",
+              "visningsnavn": "Adressetilleggsnavn"
+            },
+            {
+              "kode": "6103",
+              "navn": "adressenavn",
+              "visningsnavn": "Adressenavn"
+            },
+            {
+              "kode": "6104",
+              "navn": "traktorveg",
+              "visningsnavn": "Traktorveg"
+            },
+            {
+              "kode": "6105",
+              "navn": "sti",
+              "visningsnavn": "Sti"
+            },
+            {
+              "kode": "6106",
+              "navn": "vegkryss",
+              "visningsnavn": "Vegkryss"
+            },
+            {
+              "kode": "6107",
+              "navn": "vegsving",
+              "visningsnavn": "Vegsving"
+            },
+            {
+              "kode": "6108",
+              "navn": "bakkeVeg",
+              "tidlnavn": "bakkeIVeg",
+              "visningsnavn": "Bakke (Veg)"
+            },
+            {
+              "kode": "6109",
+              "navn": "vegstrekning",
+              "visningsnavn": "Vegstrekning"
+            },
+            {
+              "navn": "fjellovergang",
+              "visningsnavn": "Fjellovergang"
+            },
+            {
+              "kode": "6110",
+              "navn": "vad",
+              "visningsnavn": "Vad"
+            },
+            {
+              "kode": "6111",
+              "navn": "grind",
+              "visningsnavn": "Grind"
+            },
+            {
+              "kode": "6112",
+              "navn": "tømmervelte",
+              "visningsnavn": "Tømmervelte"
+            },
+            {
+              "navn": "busstasjon",
+              "visningsnavn": "Busstasjon"
+            },
+            {
+              "kode": "6113",
+              "navn": "busstopp",
+              "visningsnavn": "Busstopp"
+            },
+            {
+              "kode": "6114",
+              "navn": "parkeringsplass",
+              "visningsnavn": "Parkeringsplass"
+            }
           ]
         },
         {
           "kode": "6200",
-          "navn": "Bane",
+          "navn": "bane",
           "visningsnavn": "Bane",
-          "navnetyper":
-          [
-            { "kode": "6201", "navn": "Stasjon", "visningsnavn": "Stasjon" },
-            { "kode": "6202", "navn": "Holdeplass", "visningsnavn": "Holdeplass" },
-            { "kode": "6203", "navn": "Banestrekning", "visningsnavn": "Banestrekning" }
+          "navnetyper": [
+            {
+              "kode": "6201",
+              "navn": "stasjon",
+              "visningsnavn": "Stasjon"
+            },
+            {
+              "kode": "6202",
+              "navn": "holdeplass",
+              "visningsnavn": "Holdeplass"
+            },
+            {
+              "kode": "6203",
+              "navn": "banestrekning",
+              "visningsnavn": "Banestrekning"
+            }
           ]
         },
         {
           "kode": "6300",
-          "navn": "Luftfart",
+          "navn": "luftfart",
           "visningsnavn": "Luftfart",
-          "navnetyper":
-          [
-            { "kode": "6301", "navn": "Flyplass", "visningsnavn": "Flyplass" },
-            { "kode": "6302", "navn": "Landingsplass", "visningsnavn": "Landingsstripe" }
+          "navnetyper": [
+            {
+              "kode": "6301",
+              "navn": "flyplass",
+              "visningsnavn": "Flyplass"
+            },
+            {
+              "kode": "6302",
+              "navn": "landingsplass",
+              "visningsnavn": "Landingsplass"
+            },
+            {
+              "navn": "helikopterlandingsplass",
+              "visningsnavn": "Helikopterlandingsplass"
+            }
           ]
         },
         {
           "kode": "6400",
-          "navn": "Sjøfart",
+          "navn": "sjøfart",
           "visningsnavn": "Sjøfart",
-          "navnetyper":
-          [
-            { "kode": "6401", "navn": "Skipslei", "visningsnavn": "Farled/skipslei" },
-            { "kode": "6402", "navn": "Ferjestrekning", "visningsnavn": "Ferjestrekning" },
-            { "kode": "6403", "navn": "Havn", "visningsnavn": "Havn" },
-            { "kode": "6404", "navn": "Kai", "visningsnavn": "Kai" },
-            { "kode": "6405", "navn": "Brygge", "visningsnavn": "Brygge" },
-            { "kode": "6406", "navn": "Ferjekai", "visningsnavn": "Ferjekai" },
-            { "kode": "6407", "navn": "Ankringsplass", "visningsnavn": "Ankringsplass" },
-            { "kode": "6408", "navn": "Småbåthavn", "visningsnavn": "Småbåthavn" },
-            { "kode": "6409", "navn": "Stø", "visningsnavn": "Stø" },
-            { "kode": "6410", "navn": "Utstikker", "visningsnavn": "Utstikker" },
-            { "kode": "6411", "navn": "Molo", "visningsnavn": "Molo" },
-            { "kode": "6412", "navn": "Sluse", "visningsnavn": "Sluse" },
-            { "kode": "6413", "navn": "Kanal", "visningsnavn": "Kanal" }
+          "navnetyper": [
+            {
+              "kode": "6401",
+              "navn": "farledSkipslei",
+              "tidlnavn": "skipslei",
+              "visningsnavn": "Farled/skipslei"
+            },
+            {
+              "kode": "6402",
+              "navn": "ferjestrekning",
+              "visningsnavn": "Ferjestrekning"
+            },
+            {
+              "kode": "6403",
+              "navn": "havn",
+              "visningsnavn": "Havn"
+            },
+            {
+              "kode": "6404",
+              "navn": "kai",
+              "visningsnavn": "Kai"
+            },
+            {
+              "kode": "6405",
+              "navn": "brygge",
+              "visningsnavn": "Brygge"
+            },
+            {
+              "kode": "6406",
+              "navn": "ferjekai",
+              "visningsnavn": "Ferjekai "
+            },
+            {
+              "kode": "6407",
+              "navn": "ankringsplass",
+              "visningsnavn": "Ankringsplass"
+            },
+            {
+              "kode": "6408",
+              "navn": "småbåthavn",
+              "visningsnavn": "Småbåthavn"
+            },
+            {
+              "kode": "6409",
+              "navn": "stø",
+              "visningsnavn": "Stø"
+            },
+            {
+              "kode": "6410",
+              "navn": "utstikker",
+              "visningsnavn": "Utstikker"
+            },
+            {
+              "kode": "6411",
+              "navn": "molo",
+              "visningsnavn": "Molo"
+            },
+            {
+              "kode": "6412",
+              "navn": "sluse",
+              "visningsnavn": "Sluse"
+            },
+            {
+              "kode": "6413",
+              "navn": "kanal",
+              "visningsnavn": "Kanal"
+            }
           ]
         },
         {
           "kode": "6500",
-          "navn": "Navigasjon",
+          "navn": "navigasjon",
           "visningsnavn": "Navigasjon",
-          "navnetyper":
-          [
-            { "kode": "6501", "navn": "Fyrstasjon", "visningsnavn": "Fyr (Fyrstasjon)" },
-            { "kode": "6502", "navn": "Fyrlykt", "visningsnavn": "Lykt (Fyrlykt)" },
-            { "kode": "6503", "navn": "Lanterne", "visningsnavn": "Lanterne" },
-            { "kode": "6504", "navn": "Jernstang", "visningsnavn": "Jernstang" },
-            { "kode": "6505", "navn": "Stake", "visningsnavn": "Stake" },
-            { "kode": "6506", "navn": "Lysbøye", "visningsnavn": "Lysbøye" },
-            { "kode": "6507", "navn": "Båke", "visningsnavn": "Båke" },
-            { "kode": "6508", "navn": "Overett", "visningsnavn": "Overett" },
-            { "kode": "6509", "navn": "Sjøvarde", "visningsnavn": "Sjøvarde" },
-            { "kode": "6510", "navn": "Varde", "visningsnavn": "Varde" }
+          "navnetyper": [
+            {
+              "kode": "6501",
+              "navn": "fyrstasjon",
+              "visningsnavn": "Fyrstasjon"
+            },
+            {
+              "kode": "6502",
+              "navn": "fyrlykt",
+              "visningsnavn": "Fyrlykt"
+            },
+            {
+              "kode": "6503",
+              "navn": "lanterne",
+              "visningsnavn": "Lanterne"
+            },
+            {
+              "kode": "6504",
+              "navn": "jernstang",
+              "visningsnavn": "Jernstang"
+            },
+            {
+              "kode": "6505",
+              "navn": "stake",
+              "visningsnavn": "Stake"
+            },
+            {
+              "kode": "6506",
+              "navn": "lysbøye",
+              "visningsnavn": "Lysbøye"
+            },
+            {
+              "kode": "6507",
+              "navn": "båke",
+              "visningsnavn": "Båke"
+            },
+            {
+              "kode": "6508",
+              "navn": "overett",
+              "visningsnavn": "Overett"
+            },
+            {
+              "kode": "6509",
+              "navn": "sjøvarde",
+              "visningsnavn": "Sjøvarde"
+            },
+            {
+              "kode": "6510",
+              "navn": "varde",
+              "visningsnavn": "Varde"
+            },
+            {
+              "navn": "sjømerkeMedIndirekteBelysning",
+              "visningsnavn": "Sjømerke med indirekte belysning"
+            }
           ]
         },
         {
           "kode": "6600",
-          "navn": "Samferdselsanlegg",
+          "navn": "samferdselsanlegg",
           "visningsnavn": "Samferdselsanlegg",
-          "navnetyper":
-          [
-            { "kode": "6601", "navn": "Tunnel", "visningsnavn": "Tunnel" },
-            { "kode": "6602", "navn": "Bru", "visningsnavn": "Bru" },
-            { "kode": "6603", "navn": "Klopp", "visningsnavn": "Klopp" },
-            { "kode": "6604", "navn": "Bomstasjon", "visningsnavn": "Bomstasjon" },
-            { "kode": "6605", "navn": "Vegbom", "visningsnavn": "Vegbom" },
-            { "kode": "6606", "navn": "Rasteplass", "visningsnavn": "Rasteplass" },
-            { "kode": "6607", "navn": "GarasjeHangarbygg", "visningsnavn": "Garasje/hangarbygg" },
-            { "kode": "6608", "navn": "Fjellheis", "visningsnavn": "Fjellheis" },
-            { "kode": "6609", "navn": "Taubane", "visningsnavn": "Taubane" }
+          "navnetyper": [
+            {
+              "kode": "6601",
+              "navn": "tunnel",
+              "visningsnavn": "Tunnel"
+            },
+            {
+              "navn": "jernbanetunnel",
+              "visningsnavn": "Jernbanetunnel"
+            },            
+            {
+              "navn": "overbygg",
+              "visningsnavn": "Overbygg"
+            },
+            {
+              "kode": "6602",
+              "navn": "bru",
+              "visningsnavn": "Bru"
+            },
+            {
+              "navn": "jernbanebru",
+              "visningsnavn": "Jernbanebru"
+            },
+            {
+              "navn": "mindreBrukonstruksjon",
+              "visningsnavn": "Mindre brukonstruksjon"
+            },
+            {
+              "kode": "6603",
+              "navn": "klopp",
+              "visningsnavn": "Klopp"
+            },
+            {
+              "kode": "6604",
+              "navn": "bomstasjon",
+              "visningsnavn": "Bomstasjon"
+            },
+            {
+              "kode": "6605",
+              "navn": "vegbom",
+              "visningsnavn": "Vegbom"
+            },
+            {
+              "kode": "6606",
+              "navn": "rasteplass",
+              "visningsnavn": "Rasteplass"
+            },
+            {
+              "kode": "6607",
+              "navn": "garasjeHangarbygg",
+              "visningsnavn": "Garasje/hangarbygg"
+            },
+            {
+              "kode": "6608",
+              "navn": "fjellheis",
+              "visningsnavn": "Fjellheis"
+            },
+            {
+              "kode": "6609",
+              "navn": "taubane",
+              "visningsnavn": "Taubane"
+            }
           ]
         },
         {
           "kode": "6700",
-          "navn": "Energi",
+          "navn": "energi",
           "visningsnavn": "Energi",
-          "navnetyper":
-          [
-            { "kode": "6701", "navn": "Kraftstasjon", "visningsnavn": "Kraftstasjon" },
-            { "kode": "6702", "navn": "Kraftledning", "visningsnavn": "Kraftledning" },
-            { "kode": "6703", "navn": "Kraftgate", "visningsnavn": "Kraftgate (rørgate)" },
-            { "kode": "6704", "navn": "Rørledning", "visningsnavn": "Rørledning" },
-            { "kode": "6705", "navn": "Kabel", "visningsnavn": "Kabel" },
-            { "kode": "6706", "navn": "Oljeinstallasjon", "visningsnavn": "Oljeinstallasjon" }
+          "navnetyper": [
+            {
+              "kode": "6701",
+              "navn": "kraftstasjon",
+              "visningsnavn": "Kraftstasjon"
+            },
+            {
+              "kode": "6702",
+              "navn": "kraftledning",
+              "visningsnavn": "Kraftledning"
+            },
+            {
+              "kode": "6703",
+              "navn": "kraftgateRørgate",
+              "tidlnavn": "kraftgate",
+              "visningsnavn": "Kraftgate (rørgate)"
+            },
+            {
+              "kode": "6704",
+              "navn": "rørledning",
+              "visningsnavn": "Rørledning"
+            },
+            {
+              "kode": "6705",
+              "navn": "kabel",
+              "visningsnavn": "Kabel"
+            },
+            {
+              "kode": "6706",
+              "navn": "oljeinstallasjon",
+              "visningsnavn": "Oljeinstallasjon"
+            }
           ]
         },
         {
           "kode": "6800",
-          "navn": "Kommunikasjon",
+          "navn": "kommunikasjon",
           "visningsnavn": "Kommunikasjon",
-          "navnetyper":
-          [
-            { "kode": "6801", "navn": "TVRadioMobiltelefontårn", "visningsnavn": "TV/Radio-mast" }
+          "navnetyper": [
+            {
+              "kode": "6801",
+              "navn": "tV-Radio-EllerMobiltelefontårn",
+              "tidlnavn": "tVRadioMobiltelefontårn",
+              "visningsnavn": "TV-/radio- eller mobiltelefontårn"
+            }
           ]
         }
       ]
     },
     {
       "kode": "7000",
-      "navn": "OffentligAdministrasjon",
+      "navn": "offentligAdministrasjon",
       "visningsnavn": "Offentlig administrasjon",
-      "navnetypeGrupper":
-      [
+      "navnetypeGrupper": [
         {
           "kode": "7100",
-          "navn": "AdministrativeIndelinger",
+          "navn": "administrativeIndelinger",
           "visningsnavn": "Administrative indelinger",
-          "navnetyper":
-          [
-            { "kode": "7101", "navn": "Nasjon", "visningsnavn": "Nasjon" },
-            { "kode": "7102", "navn": "Fylke", "visningsnavn": "Fylke" },
-            { "kode": "7103", "navn": "Kommune", "visningsnavn": "Kommune" },
-            { "kode": "7104", "navn": "AdministrativBydel", "visningsnavn": "Adm. bydel" },
-            { "kode": "7105", "navn": "Grunnkrets", "visningsnavn": "Grunnkrets" },
-            { "kode": "7106", "navn": "Skolekrets", "visningsnavn": "Skolekrets" },
-            { "kode": "7107", "navn": "Valgkrets", "visningsnavn": "Valgkrets" },
-            { "kode": "7108", "navn": "Sokn", "visningsnavn": "Sogn" },
-            { "kode": "7109", "navn": "Poststed", "visningsnavn": "Poststed (Postkontor)" },
-            { "kode": "7110", "navn": "Grensemerke", "visningsnavn": "Grensemerke" },
-            { "kode": "7111", "navn": "StatistiskTettsted", "visningsnavn": "Statistisk tettsted" },
-            { "kode": "7112", "navn": "AnnenAdministrativInndeling", "visningsnavn": "Annen adm. inndeling" }
+          "navnetyper": [
+            {
+              "kode": "7101",
+              "navn": "nasjon",
+              "visningsnavn": "Nasjon"
+            },
+            {
+              "kode": "7102",
+              "navn": "fylke",
+              "visningsnavn": "Fylke"
+            },
+            {
+              "kode": "7103",
+              "navn": "kommune",
+              "visningsnavn": "Kommune"
+            },
+            {
+              "kode": "7104",
+              "navn": "administrativBydel",
+              "visningsnavn": "Administrativ bydel"
+            },
+            {
+              "kode": "7105",
+              "navn": "grunnkrets",
+              "visningsnavn": "Grunnkrets"
+            },
+            {
+              "kode": "7106",
+              "navn": "skolekrets",
+              "visningsnavn": "Skolekrets"
+            },
+            {
+              "kode": "7107",
+              "navn": "valgkrets",
+              "visningsnavn": "Valgkrets"
+            },
+            {
+              "kode": "7108",
+              "navn": "sokn",
+              "visningsnavn": "Sokn"
+            },
+            {
+              "kode": "7109",
+              "navn": "poststed",
+              "visningsnavn": "Poststed"
+            },
+            {
+              "kode": "7110",
+              "navn": "grensemerke",
+              "visningsnavn": "Grensemerke"
+            },
+            {
+              "kode": "7111",
+              "navn": "statistiskTettsted",
+              "visningsnavn": "Statistisk tettsted"
+            },
+            {
+              "kode": "7112",
+              "navn": "annenAdministrativInndeling",
+              "visningsnavn": "Annen administrativ inndeling"
+            }
           ]
         },
         {
           "kode": "7200",
-          "navn": "VerneOgBruksområder",
+          "navn": "verne-OgBruksområder",
+          "tidlnavn": "verneOgBruksområder",
           "visningsnavn": "Verne- og bruksområder",
-          "navnetyper":
-          [
-            { "kode": "7201", "navn": "Verneområde", "visningsnavn": "Verneområder" },
-            { "kode": "7202", "navn": "Allmenning", "visningsnavn": "Allmenning" },
-            { "kode": "7203", "navn": "Skytefelt", "visningsnavn": "Skytefelt" },
-            { "kode": "7204", "navn": "Skytebane", "visningsnavn": "Skytebane" },
-            { "kode": "7205", "navn": "SoneinndelingTilHavs", "visningsnavn": "Soneinndeling til havs" }
+          "navnetyper": [
+            {
+              "kode": "7201",
+              "navn": "verneområde",
+              "visningsnavn": "Verneområde"
+            },
+            {
+              "kode": "7202",
+              "navn": "allmenning",
+              "visningsnavn": "Allmenning"
+            },
+            {
+              "kode": "7203",
+              "navn": "skytefelt",
+              "visningsnavn": "Skytefelt"
+            },
+            {
+              "kode": "7204",
+              "navn": "skytebane",
+              "visningsnavn": "Skytebane"
+            },
+            {
+              "kode": "7205",
+              "navn": "soneinndelingTilHavs",
+              "visningsnavn": "Soneinndeling til havs"
+            }
           ]
         }
       ]
     },
     {
       "kode": "8000",
-      "navn": "Kultur",
+      "navn": "kultur",
       "visningsnavn": "Kultur",
-      "navnetypeGrupper":
-      [
+      "navnetypeGrupper": [
         {
           "kode": "8100",
-          "navn": "Kulturminner",
+          "navn": "kulturminner",
           "visningsnavn": "Kulturminner",
-          "navnetyper":
-          [
-            { "kode": "8101", "navn": "Severdighet", "visningsnavn": "Severdighet" },
-            { "kode": "8102", "navn": "Utsiktspunkt", "visningsnavn": "Utsiktspunkt" },
-            { "kode": "8103", "navn": "Offersted", "visningsnavn": "Offersted" },
-            { "kode": "8104", "navn": "AnnenKulturdetalj", "visningsnavn": "Annen kulturdetalj" }
+          "navnetyper": [
+            {
+              "kode": "8101",
+              "navn": "severdighet",
+              "visningsnavn": "Severdighet"
+            },
+            {
+              "kode": "8102",
+              "navn": "utsiktspunkt",
+              "visningsnavn": "Utsiktspunkt"
+            },
+            {
+              "kode": "8103",
+              "navn": "offersted",
+              "visningsnavn": "Offersted"
+            },
+            {
+              "kode": "8104",
+              "navn": "annenKulturdetalj",
+              "visningsnavn": "Annen kulturdetalj"
+            }
           ]
         },
         {
           "kode": "8200",
-          "navn": "Kulturinstitusjoner",
+          "navn": "kulturinstitusjoner",
           "visningsnavn": "Kulturinstitusjoner",
-          "navnetyper":
-          [
-            { "kode": "8201", "navn": "MuseumGalleriBibliotek", "visningsnavn": "Museum/ Galleri/Bibliotek" },
-            { "kode": "8202", "navn": "ForsamlingshusKulturhus", "visningsnavn": "Forsamlingshus" },
-            { "kode": "8203", "navn": "Kirke", "visningsnavn": "Kirke" },
-            { "kode": "8204", "navn": "AnnenBygningForReligionsutøvelse", "visningsnavn": "Annen bygn. for relig. aktiv." },
-            { "kode": "8205", "navn": "Gravplass", "visningsnavn": "Gravplass" }
+          "navnetyper": [
+            {
+              "kode": "8201",
+              "navn": "museumGalleriBibliotek",
+              "visningsnavn": "Museum/galleri/bibliotek"
+            },
+            {
+              "kode": "8202",
+              "navn": "forsamlingshusKulturhus",
+              "visningsnavn": "Forsamlingshus/kulturhus"
+            },
+            {
+              "navn": "kulturMessehall",
+              "visningsnavn": "Kultur-/messehall"
+            },
+            {
+              "kode": "8203",
+              "navn": "kirke",
+              "visningsnavn": "Kirke"
+            },
+            {
+              "kode": "8204",
+              "navn": "annenBygningForReligionsutøvelse",
+              "visningsnavn": "Annen bygning for religionsutøvelse"
+            },
+            {
+              "kode": "8205",
+              "navn": "gravplass",
+              "visningsnavn": "Gravplass"
+            }
           ]
         }
       ]

@@ -19,13 +19,13 @@ from io import TextIOWrapper
 from xml.etree import ElementTree
 
 
-version = "1.0.0"
+version = "1.1.0"
 
 header = {"User-Agent": "osm-no/geocode2osm"}
 
-max_nominatim = 500  # Max number of Nominatim calls during one hour
-
+max_nominatim = 500     # Max number of Nominatim calls during one hour
 pause_nominatim = True  # Wait one hour for next Nominatim batch (else do only first batch)
+log_queries = True      # Save queries to log file
 
 
 # Translation table for other information than street names
@@ -36,10 +36,15 @@ fix_name = [
 	("Herredshuset", "Herredshus"),
 	("Heradshuset", "Heradshus"),
 	("st.", "stasjon"),
+	("togstasjon", "stasjon"),
+	("jernbanestasjon", "stasjon"),
 	("sk.", "skole"),
 	("vgs.", "videregående skole"),
 	("v.g.s.", "videregående skole"),
-	("b&u", "barne og ungdom")
+	("b&u", "barne og ungdom"),
+	("c/o", ""),
+	("C/O", ""),
+	("C/o", "")
 	]
 
 
@@ -120,7 +125,8 @@ def message (line):
 
 def log(log_text):
 
-	log_file.write(log_text)
+	if log_queries:
+		log_file.write(log_text)
 
 
 # Open file/api, try up to 5 times, each time with double sleep time
@@ -139,6 +145,7 @@ def try_urlopen (url):
 				message ("\r\tRetry %i in %ss... " % (tries + 1, 5 * (2**tries)))
 				time.sleep(5 * (2**tries))
 				tries += 1
+				error = e
 			else:
 				message ("\n\nHTTP error %i: %s\n" % (e.code, e.reason))
 				message ("%s\n" % url.get_full_url())
@@ -151,7 +158,7 @@ def try_urlopen (url):
 			time.sleep(5 * (2**tries))
 			tries += 1
 	
-	message ("\n\nError: %s\n" % e.reason)
+	message ("\n\nError: %s\n" % error.reason)
 	message ("%s\n\n" % url.get_full_url())
 	sys.exit()
 
@@ -197,7 +204,7 @@ def nominatim_search (query_type, query_text, query_municipality, method):
 	file.close()
 
 	log ("Nominatim (%s): %s=%s\n" % (method, query_type, query_text))
-	log (json.dumps(result, indent=2))
+	log (json.dumps(result, indent=2, ensure_ascii=False))
 	log ("\n")
 	nominatim_count += 1
 	batch_count += 1
@@ -216,16 +223,19 @@ def nominatim_search (query_type, query_text, query_municipality, method):
 		latitude = float(result['lat'])
 		longitude = float(result['lon'])
 
-		if (latitude > bbox['latitude_min']) and (latitude < bbox['latitude_max']) and \
-			(longitude > bbox['longitude_min']) and (longitude < bbox['longitude_max']):
+		if bbox['latitude_min'] < latitude < bbox['latitude_max'] and \
+			bbox['longitude_min'] <longitude < bbox['longitude_max']:
+
 			result_type = "Nominatim/%s -> %s/%s" % (method, result['class'], result['type'])
-			if result['class'] == "highway":
+			if result['type'] == "house" and "address" in method:
+				result_quality = "house"
+			elif result['class'] == "highway" and "address" in method:
 				result_quality = "street"
-			elif method.find("address") >= 0:
+			elif "address" in method:
 				result_quality = "place"
 			else:
-				result_quality = "post district"
-			return (result['lat'], result['lon'], result_type, result_quality)
+				result_quality = "district"
+			return (latitude, longitude, result_type, result_quality)
 		else:
 			log ("Nominatim result not within bounding box of municipality\n")
 			return None
@@ -265,7 +275,7 @@ def matrikkel_search (street, house_number, house_letter, post_code, city, munic
 	result = result['adresser']
 
 	log ("Matrikkel (%s): %s\n" % (method, urllib.parse.unquote(query)))  # .encode('ASCII')).decode('utf-8')))
-	log (json.dumps(result, indent=2))
+	log (json.dumps(result, indent=2, ensure_ascii=False))
 	log ("\n")
 	matrikkel_count += 1
 
@@ -273,8 +283,10 @@ def matrikkel_search (street, house_number, house_letter, post_code, city, munic
 		result_type = "Matrikkel/%s -> %s" % (method, result[0]['objtype'])
 		latitude = result[0]['representasjonspunkt']['lat']
 		longitude = result[0]['representasjonspunkt']['lon']
-		if method.find("address") >= 0:
+		if "address" in method:
 			result_quality = "house"
+		elif "street" in method:
+			result_quality = "street"
 		else:
 			result_quality = "place"
 		return (str(latitude), str(longitude), result_type, result_quality)
@@ -284,45 +296,51 @@ def matrikkel_search (street, house_number, house_letter, post_code, city, munic
 
 # Geocoding with SSR
 
-def ssr_search (query_text, query_municipality, method):
+def ssr_search (query_text, query_municipality, method, fuzzy=False):
 
 	global ssr_count, ssr_not_found
 
-	query = "https://ws.geonorge.no/SKWS3Index/ssr/json/sok?navn=%s&epsgKode=4326&fylkeKommuneListe=%s&eksakteForst=true" \
+	query = "https://ws.geonorge.no/stedsnavn/v1/navn?sok=%s&knr=%s" \
 				% (urllib.parse.quote(query_text.replace("(","").replace(")","")), query_municipality)
+	if fuzzy:
+		query += "&fuzzy=true"
 	request = urllib.request.Request(query, headers=header)
 	file = try_urlopen(request)
 	result = json.load(file)
 	file.close()
 
 	log ("SSR (%s): %s, municipality #%s\n" % (method, query_text, query_municipality))
-	log (json.dumps(result, indent=2))
+	log (json.dumps(result, indent=2, ensure_ascii=False))
 	log ("\n")
 	ssr_count += 1
 
-	if "stedsnavn" in result:
-		if isinstance(result['stedsnavn'], dict):  # Single result is not in a list
-			result['stedsnavn'] = [ result['stedsnavn'] ]
+	if result['navn']: # "stedsnavn" in result:
 
 		# Check if name type is defined in category table
-		for place in result['stedsnavn']:
-			if not(place['navnetype'].lower().strip() in ssr_types):
+		for place in result['navn']:
+			if not(place['navneobjekttype'].lower().strip() in ssr_types):
 				message ("\n\t**** SSR name type '%s' not found - please post issue at 'https://github.com/osmno/geocode2osm' ****\n\n"\
-							% place['navnetype'])
-				log ("SSR name type '%s' not found\n" % place['navnetype'])
-				if not(place['navnetype'] in ssr_not_found):
-					ssr_not_found.append(place['navnetype'])
+							% place['navneobjekttype'])
+				log ("SSR name type '%s' not found\n" % place['navneobjekttype'])
+				if not(place['navneobjekttype'] in ssr_not_found):
+					ssr_not_found.append(place['navneobjekttype'])
 
 		# Return the first acceptable result
-		for place in result['stedsnavn']:
-			if (place['navnetype'].lower().strip() in ssr_types) and \
-					(ssr_types[ place['navnetype'].lower().strip() ] in ['Bebyggelse', 'OffentligAdministrasjon', 'Kultur']):
-				result_type = "SSR/%s -> %s" % (method, place['navnetype'].strip())
-				if method == "street":
+		for place in result['navn']:
+			if place["navneobjekttype"] == "Adressenavn" or \
+				place['navneobjekttype'].lower().strip() in ssr_types and \
+					ssr_types[ place['navneobjekttype'].lower().strip() ] in ['bebyggelse', 'offentligAdministrasjon', 'kultur']:
+
+				result_type = "SSR/%s -> %s" % (method, place['navneobjekttype'].strip())
+
+				if place["navneobjekttype"] == "Adressenavn" and "street" in method:
+					result_quality = "street"
+				elif "street" in method:
 					result_quality = "place"
 				else:
-					result_quality = "post district"
-				return (place['nord'], place['aust'], result_type, result_quality)
+					result_quality = "district"
+
+				return (place['representasjonspunkt']['nord'], place['representasjonspunkt']['øst'], result_type, result_quality)
 	
 	return None
 
@@ -364,10 +382,11 @@ def get_municipality_data (query_municipality):
 	return bbox
 
 
-# Look up synonyms and genitive variations
+# Generate list of synonyms and genitive variations
 
-def try_synonyms (street, house_number, house_letter, postcode, city, municipality_ref):
+def generate_synonyms (street):
 
+	synonym_list = []
 	low_street = street.lower() + " "
 
 	# Iterate all synonyms (twice for abbreviations)
@@ -392,21 +411,8 @@ def try_synonyms (street, house_number, house_letter, postcode, city, municipali
 
 					for synonym_replacement in synonyms:
 						if (synonym_replacement != synonym_word) and not("." in synonym_replacement):
-
 							new_street = low_street[0:found_position] + low_street[found_position:].replace(test_word, synonym_replacement)
-							result = matrikkel_search (new_street, house_number, house_letter, postcode, city, municipality_ref, "address+synonymfix")
-							if (result):
-								return result
-
-#							# Test genitive "s" -> "s " for each synonym (this is the most common case)
-#
-#							if (found_position > 0) and (low_street[ found_position - 1 ] == "s"):
-#								new_street = low_street[0:found_position - 1] + \
-#												low_street[found_position - 1:].replace(test_word, " " + synonym_replacement)
-#								result = matrikkel_search (new_street, house_number, house_letter, postcode, city, municipality_ref, \
-#															"address+synonymfix+genitivefix")
-#								if (result):
-#									return result
+							synonym_list.append(new_street)
 
 						# Test genitive variations
 
@@ -418,18 +424,11 @@ def try_synonyms (street, house_number, house_letter, postcode, city, municipali
 
 									new_street = low_street[0:found_position - 2] + \
 										low_street[found_position - 2:].replace(genitive_test[0] + test_word, genitive_test[1] + synonym_replacement)
-#									new_street = low_street[0:found_position - 2] + \
-#													low_street[found_position - 2:].replace(genitive_test[0] + test_word, genitive_test[1] + test_word)
+
 									if new_street != low_street:
-										result = matrikkel_search (new_street, house_number, house_letter, postcode, city, municipality_ref, \
-																	"address+genitivefix")
-										if (result):
-											return result
+										synonym_list.append(new_street)
 
-			if found:
-				break  # Already match in synonym group, so no need to test rest of the group
-
-	return None
+	return synonym_list
 
 
 # Main program
@@ -495,7 +494,8 @@ if __name__ == '__main__':
 	else:
 		log_filename = filename + "_geocodelog.txt"
 
-	log_file = open(log_filename, "w")
+	if log_queries:
+		log_file = open(log_filename, "w")
 
 	nominatim_count = 0
 	batch_count = 0
@@ -510,7 +510,7 @@ if __name__ == '__main__':
 		'house': 0,
 		'street': 0,
 		'place': 0,
-		'post district': 0
+		'district': 0
 	}
 
 	root = tree.getroot()
@@ -532,6 +532,7 @@ if __name__ == '__main__':
 			message ("%i %s " % (tried_count, address))	
 			log ("\nADDRESS %i: %s\n" % (tried_count, address))
 
+			address = address.replace(",,", ",")
 			address_split = address.split(",")
 			length = len(address_split)
 			for i in range(length):
@@ -605,13 +606,20 @@ if __name__ == '__main__':
 					if not(result):
 						result = matrikkel_search (street, house_number, house_letter, "", city, "", "address+city")
 
+					# Without house letter
+					if not(result) and house_letter:
+						result = matrikkel_search (street, house_number, "", "", city, "", "address+city")						
+
 					# With municipality instead of postcode and city
 					if not(result) and municipality_ref:
 						result = matrikkel_search (street, house_number, house_letter, "", "", municipality_ref, "address+municipality")
 
 					# Try fixes for abbreviations, synonyms and genitive ortography
-					if not(result):
-						result = try_synonyms (street, house_number, house_letter, postcode, city, municipality_ref)
+					if not(result) and municipality_ref:
+						for test_street in generate_synonyms(street):
+							result = matrikkel_search (test_street, house_number, house_letter, postcode, city, municipality_ref, "address+fix")
+							if result:
+								break
 
 				# If no house number is given, the street attribute ofte contains a place name
 				if not(result) and not(house_number) and municipality_ref:
@@ -625,12 +633,17 @@ if __name__ == '__main__':
 				if not(result) and municipality_name:
 					result = nominatim_search ("q", get_address(street, house_number, "", municipality_name), municipality_ref, "address")
 
-				# Finally, try to look up street name in Matrikkel addresses
-				if not(result) and not(house_number):  # Todo: Rare hits from this section - investigate results
-					result = matrikkel_search (street, "", "", postcode, city, municipality_ref, "street")
+				# If no result from Nominatim, try SSR for abbreviations, synonyms and genitive ortography
+				if not(result) and municipality_ref:
+					for test_street in [street] + generate_synonyms(street):
+						result = ssr_search (test_street, municipality_ref, "street+fix")
+						if result:
+							break
 
-					if not(result) and postcode_name and (postcode_name != city.upper()) and not(municipality_ref):
-						result = matrikkel_search (street, "", "", postcode, "", "", "street+postcode")
+#				# Finally, try fuzzy search (results may be unpredictable ...)
+#				if not(result) and municipality_ref:  # and not(house_number) 
+#					result = ssr_search (street, municipality_ref, "street+fuzzy", fuzzy=True)	
+
 
 			# Try to find village of post district if only one district per city
 			if not(result) and city and municipality_ref:
@@ -673,8 +686,8 @@ if __name__ == '__main__':
 				result_type = result[2]
 				result_quality = result[3]
 
-				node.set("lat", latitude)
-				node.set("lon", longitude)
+				node.set("lat", str(latitude))
+				node.set("lon", str(longitude))
 				node.set("action", "modify")
 
 				tag = node.find("tag[@k='GEOCODE_METHOD']")
@@ -738,16 +751,17 @@ if __name__ == '__main__':
 	log ("\nHouse hits:         %s\n" % hits['house'])
 	log ("Street hits:        %s\n" % hits['street'])
 	log ("Place hits:         %s\n" % hits['place'])
-	log ("Post district hits: %s\n" % hits['post district'])
+	log ("District hits:      %s\n" % hits['district'])
 	log ("No hits:            %s\n" % (tried_count - geocode_count))
 
 	message ("\nGeocoded %i of %i objects, written to file '%s'\n" % (geocode_count, tried_count, filename))
 	message ("Hits: %i houses (exact addresses), %i streets, %i places (villages, towns), %i post code districts\n" % \
-				(hits['house'], hits['street'], hits['place'], hits['post district']))
+				(hits['house'], hits['street'], hits['place'], hits['district']))
 	message ("Nominatim queries: %i (max approx. 600/hour)\n" % nominatim_count)
 	message ("Detailed log in file '%s'\n\n" % log_filename)
 
 	if ssr_not_found:
 		message ("SSR name types not found: %s - please post issue at 'https://github.com/osmno/geocode2osm'\n" % str(ssr_not_found))
 
-	log_file.close()
+	if log_queries:
+		log_file.close()

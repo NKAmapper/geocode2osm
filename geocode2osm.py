@@ -19,7 +19,7 @@ from io import TextIOWrapper
 from xml.etree import ElementTree
 
 
-version = "2.0.0"
+version = "2.1.0"
 
 header = {"User-Agent": "osm-no/geocode2osm"}
 
@@ -125,8 +125,8 @@ csv_synonym_tags = {
 	'latitude': ["latitude", "lat", "y", "nord", "north"],
 	'longitude': ["longitude", "long", "lon", "x", "øst", "east"],
 	'geocode': ["geocode", "geokod"],
-	'geocode_method': ["geocode method", "geokodemetode"],
-	'geocode_result': ["geocode result", "geokoderesultat"],
+	'geomethod': ["geomethod", "geocode method", "geokodemetode"],
+	'georesult': ["georesult", "geocode result", "geokoderesultat"],
 }
 
 
@@ -359,7 +359,7 @@ def ssr_search (query_text, query_municipality, method, fuzzy=False):
 
 		for place in result['navn']:
 			if place['navneobjekttype'] not in ssr_types:
-				message ("\n\t**** SSR name type '%s' not found - please post issue at 'https://github.com/osmno/geocode2osm' ****\n\n"\
+				message ("\n\t**** SSR name type '%s' not found - please post issue at 'https://github.com/osmno/ssr2osm' ****\n\n"\
 							% place['navneobjekttype'])
 				log ("SSR name type '%s' not found\n" % place['navneobjekttype'])
 				if not(place['navneobjekttype'] in ssr_not_found):
@@ -492,7 +492,7 @@ def generate_synonyms (street):
 
 # Main function to geocode one address.
 
-def geocode2osm (address):
+def geocode (address):
 
 	'''
 	Input:
@@ -689,8 +689,6 @@ def geocode_osm_file(filename):
 	tree = ElementTree.parse(filename)
 	root = tree.getroot()
 
-
-
 	# Loop all elements in input file
 
 	for element in root:
@@ -705,7 +703,7 @@ def geocode_osm_file(filename):
 			message ("%i %s " % (tried_count, address))	
 			log ("\nADDRESS %i: %s\n" % (tried_count, address))
 
-			result = geocode2osm(address)
+			result = geocode (address)
 
 			# If successful, update coordinates and save geocoding details for information
 
@@ -715,17 +713,17 @@ def geocode_osm_file(filename):
 				element.set("lon", str(round(result['longitude'], 7)))
 				element.set("action", "modify")
 
-				tag = element.find("tag[@k='GEOCODE_METHOD']")
+				tag = element.find("tag[@k='GEOMETHOD']")
 				if tag != None:
 					tag.set("v", result['method'])
 				else:
-					element.append(ElementTree.Element("tag", k="GEOCODE_METHOD", v=result['method']))
+					element.append(ElementTree.Element("tag", k="GEOMETHOD", v=result['method']))
 
-				tag = element.find("tag[@k='GEOCODE_RESULT']")
+				tag = element.find("tag[@k='GEORESULT']")
 				if tag != None:
 					tag.set("v", result['quality'])
 				else:
-					element.append(ElementTree.Element("tag", k="GEOCODE_RESULT", v=result['quality']))
+					element.append(ElementTree.Element("tag", k="GEORESULT", v=result['quality']))
 
 				geocode_tag.set("v", "done")  # Do not geocode next time
 
@@ -739,13 +737,13 @@ def geocode_osm_file(filename):
 				message ("--> *** NO MATCH\n")
 				log ("NO MATCH\n")
 
-				tag = element.find("tag[@k='GEOCODE_RESULT']")
+				tag = element.find("tag[@k='GEORESULT']")
 				if tag != None:
 					tag.set("v", "not found")
 				else:	
-					element.append(ElementTree.Element("tag", k="GEOCODE_RESULT", v="not found"))
+					element.append(ElementTree.Element("tag", k="GEORESULT", v="not found"))
 
-				tag = element.find("tag[@k='GEOCODE_METHOD']")
+				tag = element.find("tag[@k='GEOMETHOD']")
 				if tag != None:
 					element.remove(tag)
 
@@ -762,8 +760,12 @@ def geocode_osm_file(filename):
 
 	# Output file
 
+	root.set("upload", "false")
+	indent_tree(root)
 	out_filename = filename.replace(".osm", "") + "_geocoded.osm"
 	tree.write(out_filename, encoding='utf-8', method='xml', xml_declaration=True)
+
+	return out_filename
 
 
 
@@ -800,7 +802,7 @@ def geocode_csv_file(filename):
 
 	# Open output file
 
-	for field in ["geocode", "geocode_method", "geocode_result", "latitude", "longitude"]:
+	for field in ["geocode", "geomethod", "georesult", "latitude", "longitude"]:
 		if tag_names[ field ] == "":
 			tag_names[ field ] = field.upper().replace("_", " ")
 			fieldnames.append(tag_names[ field ])
@@ -810,7 +812,7 @@ def geocode_csv_file(filename):
 	csv_writer = csv.DictWriter(out_file, fieldnames=fieldnames, delimiter=";")
 	csv_writer.writeheader()
 
-	root = ElementTree.Element("osm", version="0.6", generator="n50osm v"+version, upload="false")
+	root = ElementTree.Element("osm", version="0.6", generator="geocode2osm v"+version, upload="false")
 	osm_id = -1000
 
 
@@ -842,7 +844,7 @@ def geocode_csv_file(filename):
 			message ("%i %s " % (tried_count, address))	
 			log ("\nADDRESS %i: %s\n" % (tried_count, address))
 
-			result = geocode2osm(address)
+			result = geocode (address)
 
 			# If successful, update coordinates and save geocoding details for information
 
@@ -850,8 +852,8 @@ def geocode_csv_file(filename):
 
 				row_out[ tag_names['latitude'] ] = str(round(result['latitude'], 7))
 				row_out[ tag_names['longitude'] ] = str(round(result['longitude'], 7))
-				row_out[ tag_names['geocode_method'] ] = result['method']
-				row_out[ tag_names['geocode_result'] ] = result['quality']
+				row_out[ tag_names['geomethod'] ] = result['method']
+				row_out[ tag_names['georesult'] ] = result['quality']
 				row_out[ tag_names['geocode'] ] = "done"
 
 				message ("--> %s (%s)\n" % (result['method'], result['quality']))
@@ -864,8 +866,8 @@ def geocode_csv_file(filename):
 				message ("--> *** NO MATCH\n")
 				log ("NO MATCH\n")
 
-				row_out[ tag_names['geocode_result'] ] = "no match"
-				row_out[ tag_names['geocode_method'] ] = ""
+				row_out[ tag_names['georesult'] ] = "no match"
+				row_out[ tag_names['geomethod'] ] = ""
 				row_out[ tag_names['geocode'] ] = "yes"
 
 			# Limit Nominatim calls per hour to observe usage policy
@@ -901,7 +903,7 @@ def geocode_csv_file(filename):
 		for key, value in iter(row_out.items()):
 			if key not in [tag_names['latitude'], tag_names['longitude']]:
 				osm_key = key
-				for tag in ["address", "geocode", "geocode_method", "geocode_result"]:
+				for tag in ["address", "geocode", "geomethod", "georesult"]:
 					if key == tag_names[ tag ]:
 						osm_key = tag.upper()
 				osm_key = osm_key.replace("  ", " ").replace(" ", "_").strip()
@@ -960,7 +962,7 @@ if "init":
 
 	# Load name categories from Github. Used for filtering SSR search results by name type.
 
-	ssr_filename = 'https://raw.githubusercontent.com/osmno/geocode2osm/master/navnetyper.json'
+	ssr_filename = 'https://raw.githubusercontent.com/NKAmapper/ssr2osm/main/navnetyper_tagged.json'
 	file = urllib.request.urlopen(ssr_filename)
 	name_codes = json.load(file)
 	file.close()

@@ -16,6 +16,7 @@ Usage: <code>python geocode2osm.py \<input_filename\> [-log]</code>.
   * *District* - area given by post code or municipality.
 * Please edit ADDRESS tags and run the program again to try out corrections.
 * A detailed log is saved to a *"_ceocodelog.txt"* file if the <code>-log</code> parameter is given.
+* Other Python program may import geocode2osm and use the <code>geocode(address)</code> function to geocode one address. Please see comments on arguments and responses in the code of that function.
 
 The following services are used for geocoding:
 * Kartverket cadastral register.
@@ -23,6 +24,7 @@ The following services are used for geocoding:
 * OSM Nominatim (limited number of queries - the program will pause to limit call to 500 per hour).
 
 Changelog:
+* 2.1: Simplify result tags + load SSR name types from [ssr2osm](https://github.com/NKAmapper/ssr2osm/blob/main/navnetyper_tagged.json).
 * 2.0: Support CSV input files and support import to other Python programs.
 * 1.1: Support new SSR api + improved synonym searches for streets.
 * 1.0: Python 3 version.

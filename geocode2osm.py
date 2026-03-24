@@ -19,13 +19,15 @@ from io import TextIOWrapper
 from xml.etree import ElementTree
 
 
-version = "2.1.0"
+version = "2.2.0"
 
 header = {"User-Agent": "osm-no/geocode2osm"}
 
-max_nominatim = 500     # Max number of Nominatim calls during one hour
+max_nominatim = 0       # Max number of Nominatim calls during one hour (for example 500), or 0 to ignore
+limit_nominatim = 1.5   # Nominatim rate limit in seconds
 pause_nominatim = True  # Wait one hour for next Nominatim batch (else do only first batch)
 ssr_filter = True       # Filter SSR to avoid hits in sea/water, terrain etc.
+verbose = False			# True to print individual geocode results on screen
 
 
 # Translation table for other information than street names
@@ -72,6 +74,7 @@ street_synonyms = [
 	['verket', 'verk'],
 	['toppen', 'topp'],
 	['gamle', 'gml.'],
+#	['Sankt', 'St.', 'St'],
 	['kirke', 'kyrkje', 'krk.'],
 	['skole', 'skule', 'sk.'],
 	['ssons', 'ssens', 'sons', 'sens', 'sson', 'ssen', 'son', 'sen'],
@@ -148,7 +151,7 @@ def log(log_text, action=None):
 		log_file = open(log_text, "w")
 	elif action == "close":
 		log_file.close()
-	elif log_file != None:
+	elif log_file is not None and log_text is not None:
 		log_file.write(log_text)
 
 
@@ -212,8 +215,8 @@ def nominatim_search (query_type, query_text, query_municipality, method):
 	# Observe policy of 1 second delay between queries
 
 	time_now = time.time()
-	if time_now < last_nominatim_time + 1:
-		time.sleep(1 - time_now + last_nominatim_time)
+	if time_now < last_nominatim_time + limit_nominatim:
+		time.sleep(limit_nominatim - time_now + last_nominatim_time)
 
 	if not(municipality_bbox):
 		municipality_bbox = get_municipality_bbox(query_municipality)
@@ -686,6 +689,14 @@ def geocode_osm_file(filename):
 
 	global tried_count, geocode_count, nominatim_batch_count
 
+	def save_file(out_filename):
+
+		root.set("upload", "false")
+		indent_tree(root)
+		tree.write(out_filename, encoding='utf-8', method='xml', xml_declaration=True)
+
+
+	out_filename = filename.replace(".osm", "") + "_geocoded.osm"
 	tree = ElementTree.parse(filename)
 	root = tree.getroot()
 
@@ -696,18 +707,21 @@ def geocode_osm_file(filename):
 		address_tag = element.find("tag[@k='ADDRESS']")
 		geocode_tag = element.find("tag[@k='GEOCODE']")
 
-		if (geocode_tag != None) and (address_tag != None) and (geocode_tag.get("v").lower() not in ["no", "done"]):
+		if element.tag == "node" and geocode_tag != None and address_tag != None and geocode_tag.get("v").lower() not in ["no", "done"]:
 
 			tried_count += 1
 			address = address_tag.get("v")
-			message ("%i %s " % (tried_count, address))	
+			if verbose:
+				message ("%i %s " % (tried_count, address))	
+			else:
+				message ("\r%i " % tried_count)
 			log ("\nADDRESS %i: %s\n" % (tried_count, address))
 
 			result = geocode (address)
 
 			# If successful, update coordinates and save geocoding details for information
 
-			if result:
+			if result and (result['quality'] == "house" or geocode_tag == None or geocode_tag.get("v").lower() != "house"):
 
 				element.set("lat", str(round(result['latitude'], 7)))
 				element.set("lon", str(round(result['longitude'], 7)))
@@ -727,14 +741,16 @@ def geocode_osm_file(filename):
 
 				geocode_tag.set("v", "done")  # Do not geocode next time
 
-				message ("--> %s (%s)\n" % (result['method'], result['quality']))
+				if verbose:
+					message ("--> %s (%s)\n" % (result['method'], result['quality']))
 				log ("MATCH WITH %s (precision: %s)\n" % (result['method'], result['quality']))
 				geocode_count += 1
 
 				hits[ result['quality'] ] += 1
 
 			else:
-				message ("--> *** NO MATCH\n")
+				if verbose:
+					message ("--> *** NO MATCH\n")
 				log ("NO MATCH\n")
 
 				tag = element.find("tag[@k='GEORESULT']")
@@ -749,7 +765,7 @@ def geocode_osm_file(filename):
 
 			# Limit Nominatim calls per hour to observe usage policy
 
-			if nominatim_batch_count >= max_nominatim:
+			if max_nominatim != 0 and nominatim_batch_count >= max_nominatim:
 				if pause_nominatim:
 					message ("Sleep for one hour\n")
 					nominatim_batch_count = 0
@@ -758,12 +774,15 @@ def geocode_osm_file(filename):
 					message ("Exceeded %i Nominatim calls per hour\n" % max_nominatim)
 					break
 
+			# Save file in case of later api error
+
+			if tried_count % 1000 == 0:
+				save_file(out_filename)
+
 	# Output file
 
-	root.set("upload", "false")
-	indent_tree(root)
-	out_filename = filename.replace(".osm", "") + "_geocoded.osm"
-	tree.write(out_filename, encoding='utf-8', method='xml', xml_declaration=True)
+	save_file(out_filename)
+	message ("\n")
 
 	return out_filename
 
@@ -787,7 +806,7 @@ def geocode_csv_file(filename):
 	for column in fieldnames:
 		for tag, synonyms in iter(csv_synonym_tags.items()):
 			if column.lower() in synonyms:
-				tag_names[tag] = column
+				tag_names[ tag ] = column
 				break
 
 	message("\tFields used: %s\n\n" % (", ".join(list(tag_names.values()))))
@@ -841,14 +860,17 @@ def geocode_csv_file(filename):
 			else:
 				address = get_address(row_data['street'], row_data['house_number'], row_data['postcode'], row_data['city'])
 
-			message ("%i %s " % (tried_count, address))	
+			if verbose:
+				message ("%i %s " % (tried_count, address))
+			else:
+				message ("\r%i " % tried_count)
 			log ("\nADDRESS %i: %s\n" % (tried_count, address))
 
 			result = geocode (address)
 
 			# If successful, update coordinates and save geocoding details for information
 
-			if result:
+			if result and (result['quality'] == "house" or tag_names['geocode'] == "" or row[ tag_name['geocode'] ].lower() != "house"):
 
 				row_out[ tag_names['latitude'] ] = str(round(result['latitude'], 7))
 				row_out[ tag_names['longitude'] ] = str(round(result['longitude'], 7))
@@ -856,14 +878,16 @@ def geocode_csv_file(filename):
 				row_out[ tag_names['georesult'] ] = result['quality']
 				row_out[ tag_names['geocode'] ] = "done"
 
-				message ("--> %s (%s)\n" % (result['method'], result['quality']))
+				if verbose:
+					message ("--> %s (%s)\n" % (result['method'], result['quality']))
 				log ("MATCH WITH %s (precision: %s)\n" % (result['method'], result['quality']))
 				geocode_count += 1
 
 				hits[ result['quality'] ] += 1
 
 			else:
-				message ("--> *** NO MATCH\n")
+				if verbose:
+					message ("--> *** NO MATCH\n")
 				log ("NO MATCH\n")
 
 				row_out[ tag_names['georesult'] ] = "no match"
@@ -872,7 +896,7 @@ def geocode_csv_file(filename):
 
 			# Limit Nominatim calls per hour to observe usage policy
 
-			if nominatim_batch_count >= max_nominatim:
+			if max_nominatim != 0 and nominatim_batch_count >= max_nominatim:
 				if pause_nominatim:
 					message ("Sleep for one hour\n")
 					nominatim_batch_count = 0
@@ -914,6 +938,7 @@ def geocode_csv_file(filename):
 
 	file.close()
 	out_file.close()
+	message ("\n")
 
 	if "-noosm" not in sys.argv:
 		out_osm_filename = filename.replace(".csv", "") + "_geocoded.osm"
@@ -992,6 +1017,8 @@ if "init":
 
 if __name__ == '__main__':
 
+	start_time = time.time()
+
 	message ("\nGeocoding ADDRESS tag for objects marked with GEOCODE tag\n\n")
 
 	# Load input files
@@ -1007,6 +1034,9 @@ if __name__ == '__main__':
 	if "-log" in sys.argv:
 		log_filename = filename.replace(".osm", "").replace(".csv", "") + "_geocodelog.txt"
 		log(log_filename, action="open")
+
+	if "-verbose" in sys.argv:
+		verbose = True
 
 	tried_count = 0
 	geocode_count = 0
@@ -1040,7 +1070,7 @@ if __name__ == '__main__':
 
 	message ("\nGeocoded %i of %i objects, written to file '%s'\n" % (geocode_count, tried_count, out_filename))
 	if geocode_count < tried_count:
-		message ("%i objects not found. Adjust address and run agin.\n")
+		message ("%i objects not found. Adjust address and run agin.\n" % (tried_count - geocode_count))
 	message ("Hits: %i houses (exact addresses), %i streets, %i places (villages, towns), %i post code districts\n" % \
 				(hits['house'], hits['street'], hits['place'], hits['district']))
 	message ("Nominatim queries: %i (max approx. 600/hour)\n" % nominatim_count)
@@ -1051,4 +1081,5 @@ if __name__ == '__main__':
 	if ssr_not_found:
 		message ("SSR name types not found: %s - please post issue at 'https://github.com/osmno/geocode2osm'\n" % str(ssr_not_found))
 
-	message ("\n")
+	total_time = (time.time() - start_time) / 60
+	message ("Time: %i minutes\n\n" % total_time)
